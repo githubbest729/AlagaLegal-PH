@@ -7,7 +7,7 @@
   --color-teal-dark: #095356;
   --color-gold: #C68B2C;
 
-  /* Warm White & Soft Neutral Surfaces */
+  /* Warm White & Soft Light Gray Surfaces */
   --bg-page: #FAF9F6;
   --bg-surface: #FFFFFF;
   --bg-surface-alt: #F1F5F9;
@@ -73,7 +73,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* View Transitions API */
+/* Native App Page & View Transitions */
+@keyframes viewPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   @view-transition {
     navigation: auto;
@@ -81,8 +92,12 @@ html {
 
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    animation-duration: 0.2s;
+    animation-duration: 0.22s;
     animation-timing-function: ease-out;
+  }
+
+  .app-view.active {
+    animation: viewPageEnter 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
@@ -187,7 +202,7 @@ h1, h2, h3, .brand-title {
 
 /* Frosted Glass Civic Header */
 .app-header {
-  background: rgba(15, 41, 66, 0.9);
+  background: rgba(15, 41, 66, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   color: #FFFFFF;
@@ -282,7 +297,7 @@ h1, h2, h3, .brand-title {
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
 }
 
 .icon-btn:hover {
@@ -363,7 +378,7 @@ h1, h2, h3, .brand-title {
   margin-top: 2px;
 }
 
-/* Buttons */
+/* Buttons with Tactile Spring Press States */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -378,7 +393,7 @@ h1, h2, h3, .brand-title {
   text-decoration: none;
   cursor: pointer;
   border: 1.5px solid transparent;
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
@@ -692,7 +707,7 @@ h1, h2, h3, .brand-title {
 }
 
 .module-card:active {
-  transform: scale(0.98);
+  transform: scale(0.96);
 }
 
 .module-card--featured {
@@ -841,7 +856,7 @@ h1, h2, h3, .brand-title {
   gap: 14px;
   font-family: inherit;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .situation-btn:hover {
@@ -850,7 +865,7 @@ h1, h2, h3, .brand-title {
 }
 
 .situation-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.96);
 }
 
 .situation-btn.selected {
@@ -946,7 +961,7 @@ h1, h2, h3, .brand-title {
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
 }
 
 .chip:active {
@@ -1307,6 +1322,11 @@ h1, h2, h3, .brand-title {
   font-weight: 700;
   gap: 3px;
   padding: 4px 2px;
+  transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease;
+}
+
+.bottom-nav-item:active {
+  transform: scale(0.92);
 }
 
 .bottom-nav-item.active {

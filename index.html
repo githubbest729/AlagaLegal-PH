@@ -309,7 +309,7 @@
       <div id="situation-detail-panel" class="detail-panel" hidden></div>
     </section>
 
-    <!-- 3. STEP-BY-STEP LEGAL GUIDES VIEW -->
+    <!-- 3. STEP-BY-STEP LEGAL GUIDES VIEW (Includes Web Speech Read Aloud Button) -->
     <section id="view-guides" class="app-view" hidden aria-labelledby="guides-heading">
       <div class="view-header">
         <div class="view-header-row">
@@ -318,7 +318,10 @@
             <h1 id="guides-heading" data-i18n="guidesHeading">Step-by-Step Legal Guides</h1>
             <p class="view-subtitle" data-i18n="guidesSubtitle">Clear explanations in English and Filipino citing official Philippine statutes and agencies.</p>
           </div>
-          <button type="button" class="btn btn--small btn--secondary no-print" onclick="window.print()" data-i18n="btnPrint">Print Guide</button>
+          <div class="footer-action-group no-print">
+            <button type="button" id="btn-read-aloud" class="btn btn--small btn--primary" hidden aria-pressed="false">🔊 Read Aloud</button>
+            <button type="button" class="btn btn--small btn--secondary" onclick="window.print()" data-i18n="btnPrint">Print Guide</button>
+          </div>
         </div>
       </div>
 
@@ -596,7 +599,6 @@
   <script src="./js/storage.js"></script>
   <script src="./js/accessibility.js"></script>
   <script src="./js/navigation.js"></script>
-  <!-- View Transitions API Hook (Placed immediately after navigation.js so no .js file edits are needed) -->
   <script>
     (function () {
       if (

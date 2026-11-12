@@ -32,6 +32,56 @@
   <link rel="apple-touch-startup-image" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1170 2532'%3E%3Crect width='1170' height='2532' fill='%230F2942'/%3E%3Cpath d='M585 960 L735 1015 V1135 C735 1235 668 1302 585 1335 C502 1302 435 1235 435 1135 V1015 Z' fill='none' stroke='%23D99B26' stroke-width='22' stroke-linejoin='round'/%3E%3Ccircle cx='540' cy='1095' r='34' fill='%23FFFFFF'/%3E%3Cpath d='M482 1212 C482 1162 598 1162 598 1212 Z' fill='%23FFFFFF'/%3E%3Ccircle cx='636' cy='1118' r='26' fill='%23F6C85F'/%3E%3Cpath d='M590 1212 C590 1174 682 1174 682 1212 Z' fill='%23F6C85F'/%3E%3Ctext x='585' y='1435' text-anchor='middle' fill='%23FFFFFF' font-family='sans-serif' font-size='56' font-weight='bold'%3EAlagaLegal PH%3C/text%3E%3Ctext x='585' y='1495' text-anchor='middle' fill='%23D9E2EC' font-family='sans-serif' font-size='32'%3EFamily Care %26amp; Legal Guide%3C/text%3E%3C/svg%3E" />
 
   <link rel="stylesheet" href="./css/styles.css" />
+  <style>
+    /* Premium Teal & Gold Audio Player Card */
+    .tagalog-audio-card {
+      background: linear-gradient(135deg, rgba(13, 115, 119, 0.1) 0%, rgba(198, 139, 44, 0.14) 100%);
+      border: 1.5px solid var(--color-teal);
+      border-left: 6px solid var(--color-gold);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tagalog-audio-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .tagalog-audio-title {
+      margin: 0 0 4px;
+      font-size: 1.08rem;
+      color: var(--text-primary);
+    }
+    .tagalog-audio-sub {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+    .btn--audio-teal-gold {
+      background: linear-gradient(135deg, #0D7377 0%, #095356 100%);
+      color: #FFFFFF;
+      border: 2px solid #C68B2C;
+      box-shadow: 0 3px 10px rgba(13, 115, 119, 0.22);
+    }
+    .btn--audio-teal-gold:hover {
+      background: linear-gradient(135deg, #095356 0%, #0F2942 100%);
+    }
+    .btn--audio-teal-gold[aria-pressed="true"] {
+      background: #C68B2C;
+      color: #0A1C2E;
+      border-color: #0F2942;
+    }
+    .tagalog-audio-player {
+      width: 100%;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link" data-i18n="skipToContent">Skip to main content</a>
@@ -309,7 +359,7 @@
       <div id="situation-detail-panel" class="detail-panel" hidden></div>
     </section>
 
-    <!-- 3. STEP-BY-STEP LEGAL GUIDES VIEW (Includes Web Speech Read Aloud Button) -->
+    <!-- 3. STEP-BY-STEP LEGAL GUIDES VIEW -->
     <section id="view-guides" class="app-view" hidden aria-labelledby="guides-heading">
       <div class="view-header">
         <div class="view-header-row">
@@ -319,10 +369,26 @@
             <p class="view-subtitle" data-i18n="guidesSubtitle">Clear explanations in English and Filipino citing official Philippine statutes and agencies.</p>
           </div>
           <div class="footer-action-group no-print">
-            <button type="button" id="btn-read-aloud" class="btn btn--small btn--primary" hidden aria-pressed="false">🔊 Read Aloud</button>
+            <button type="button" id="btn-read-aloud" class="btn btn--small btn--secondary" hidden aria-pressed="false">🔊 Read Page</button>
             <button type="button" class="btn btn--small btn--secondary" onclick="window.print()" data-i18n="btnPrint">Print Guide</button>
           </div>
         </div>
+      </div>
+
+      <!-- Tagalog MP3 Audio Guide Card -->
+      <div class="tagalog-audio-card no-print" role="region" aria-label="Tagalog Audio Guide">
+        <div class="tagalog-audio-top">
+          <div>
+            <h2 class="tagalog-audio-title">Pakinggan ang Buong Gabay (Tagalog Audio • 5 Minuto)</h2>
+            <p class="tagalog-audio-sub">Maaaring pakinggan nang offline kapag na-save na ang app sa iyong cellphone.</p>
+          </div>
+          <button type="button" id="btn-tagalog-audio-toggle" class="btn btn--audio-teal-gold" aria-pressed="false">
+            🔊 Listen to this Guide (Tagalog)
+          </button>
+        </div>
+        <audio id="tagalog-guide-audio" class="tagalog-audio-player" controls preload="metadata" src="./audio/full_5min_tagalog_guide.mp3">
+          Your browser does not support the HTML5 audio player. <a href="./audio/full_5min_tagalog_guide.mp3">Download Tagalog Audio Guide (MP3)</a>.
+        </audio>
       </div>
 
       <div class="filter-bar no-print">

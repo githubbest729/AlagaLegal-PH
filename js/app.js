@@ -1,9 +1,11 @@
-/* AlagaLegal PH – Main Application Controller, Personal Action Plan & PWA Lifecycle */
+/* AlagaLegal PH – Main Application Controller, Web Speech Read Aloud, Personal Action Plan & PWA Lifecycle */
 (function (global) {
   'use strict';
 
   let deferredInstallPrompt = null;
   let waitingServiceWorker = null;
+  let isReadingAloud = false;
+  let speechSessionId = 0;
 
   const AlagaApp = {
     async init() {
@@ -18,6 +20,7 @@
       this.initPersonalPlan();
       this.updateDashboardSummary();
       this.bindGlobalControls();
+      this.initReadAloud();
       this.initConnectivityMonitor();
       this.registerServiceWorker();
     },
@@ -118,6 +121,148 @@
         this.syncPlanSituationSelect();
         this.updateDashboardSummary();
       });
+    },
+
+    initReadAloud() {
+      const readBtn = document.getElementById('btn-read-aloud');
+      if (!readBtn) return;
+
+      const isSupported =
+        'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance !== 'undefined';
+
+      if (!isSupported) {
+        readBtn.hidden = true;
+        return;
+      }
+
+      readBtn.hidden = false;
+
+      const updateButtonState = () => {
+        const isFil = AlagaA11y.currentLang === 'fil';
+        readBtn.setAttribute('aria-pressed', String(isReadingAloud));
+        if (isReadingAloud) {
+          readBtn.textContent = isFil ? '⏹ Ihinto ang Pagbasa' : '⏹ Stop Reading';
+        } else {
+          readBtn.textContent = isFil ? '🔊 Pakinggan' : '🔊 Read Aloud';
+        }
+      };
+
+      const stopReading = () => {
+        speechSessionId += 1;
+        isReadingAloud = false;
+        try {
+          window.speechSynthesis.cancel();
+        } catch (err) {
+          // Ignore cancel errors on unsupported mobile states
+        }
+        updateButtonState();
+      };
+
+      const pickVoice = (isFil) => {
+        const voices = window.speechSynthesis.getVoices() || [];
+        if (voices.length === 0) return null;
+        if (isFil) {
+          return (
+            voices.find((v) => /^fil/i.test(v.lang)) ||
+            voices.find((v) => /^tl/i.test(v.lang)) ||
+            null
+          );
+        }
+        return (
+          voices.find((v) => /^en-PH/i.test(v.lang)) ||
+          voices.find((v) => /^en/i.test(v.lang)) ||
+          null
+        );
+      };
+
+      const startReadingGuides = () => {
+        stopReading();
+
+        const guidesList = document.getElementById('guides-list');
+        const guideSection = document.getElementById('view-guides');
+        const targetContainer = guidesList || guideSection;
+        if (!targetContainer) return;
+
+        // Read card-by-card so long legal guides never time out on mobile Chrome
+        const cards = Array.from(targetContainer.querySelectorAll('.guide-card'));
+        const textChunks = cards.length > 0
+          ? cards.map((card) => card.innerText.replace(/\s+/g, ' ').trim()).filter(Boolean)
+          : [targetContainer.innerText.replace(/\s+/g, ' ').trim()].filter(Boolean);
+
+        if (textChunks.length === 0) return;
+
+        const isFil = AlagaA11y.currentLang === 'fil';
+        const targetLang = isFil ? 'fil-PH' : 'en-PH';
+        const chosenVoice = pickVoice(isFil);
+        const currentSession = ++speechSessionId;
+
+        isReadingAloud = true;
+        updateButtonState();
+        AlagaA11y.announce(isFil ? 'Binabasa nang malakas ang mga gabay.' : 'Reading legal guides aloud.');
+
+        let index = 0;
+        const speakNext = () => {
+          if (currentSession !== speechSessionId || index >= textChunks.length) {
+            if (currentSession === speechSessionId) {
+              isReadingAloud = false;
+              updateButtonState();
+            }
+            return;
+          }
+
+          const utterance = new window.SpeechSynthesisUtterance(textChunks[index]);
+          utterance.lang = targetLang;
+          utterance.rate = 0.95;
+          if (chosenVoice) {
+            utterance.voice = chosenVoice;
+          }
+
+          utterance.onend = () => {
+            if (currentSession !== speechSessionId) return;
+            index += 1;
+            speakNext();
+          };
+
+          utterance.onerror = () => {
+            if (currentSession !== speechSessionId) return;
+            isReadingAloud = false;
+            updateButtonState();
+          };
+
+          window.speechSynthesis.speak(utterance);
+        };
+
+        speakNext();
+      };
+
+      readBtn.addEventListener('click', () => {
+        if (isReadingAloud || window.speechSynthesis.speaking) {
+          stopReading();
+          AlagaA11y.announce('Stopped reading aloud.');
+        } else {
+          startReadingGuides();
+        }
+      });
+
+      document.addEventListener('alagalegal:langchange', () => {
+        stopReading();
+        updateButtonState();
+      });
+
+      document.addEventListener('alagalegal:routechange', () => {
+        if (isReadingAloud) stopReading();
+      });
+
+      window.addEventListener('beforeunload', stopReading);
+
+      if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
+        window.speechSynthesis.onvoiceschanged = () => {
+          // Pre-warm device voice list for mobile browsers
+          window.speechSynthesis.getVoices();
+        };
+      }
+
+      updateButtonState();
     },
 
     initPersonalPlan() {

@@ -18,9 +18,11 @@
       navFaq: 'FAQ',
       navPlan: 'My Plan',
       installApp: 'Install App',
+      btnShare: 'Share',
+      btnShareAppFull: 'Share This App',
       disclaimerLead: 'Public Legal Information Only:',
       disclaimerShort: 'AlagaLegal PH provides general Philippine legal education, not formal legal representation. Never falsify a birth certificate or hide a child\'s biological identity. Consult PAO, NACC, LSWDO, or a licensed lawyer for your specific case.',
-      heroBadge: 'Free Public-Service Guide • Bataan Pilot & Nationwide PH',
+      heroBadge: 'Free Public-Service Resource • Bataan Community Guide & Nationwide PH',
       heroTitle: 'Caring for a child who is not legally yours? Understand your lawful options.',
       heroMission: '“Nobody should have to break the law simply because they cannot afford to understand it.”',
       heroDesc: 'Built for Filipino grandparents, aunts, uncles, and guardians. Learn lawful adoption, guardianship, and civil registry steps in simple English and Filipino—even offline.',
@@ -42,7 +44,7 @@
       cardChecklistDesc: 'Interactive checklists saved privately on your phone so you avoid incomplete requirements and wasted trips.',
       tagStep4: 'Step 4 • Get Help',
       cardDirectoryTitle: 'Legal Aid & Agency Directory',
-      cardDirectoryDesc: 'Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan pilot partners.',
+      cardDirectoryDesc: 'Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan community offices.',
       tagStep5: 'Step 5 • Plan Budget',
       cardCostsTitle: 'Cost & Process Guide',
       cardCostsDesc: 'Understand which government services are free, where expenses may arise, and how to qualify for indigent support.',
@@ -85,7 +87,8 @@
       planNotesLabel: 'Write questions to ask PAO, LSWDO, or the Local Civil Registrar:',
       btnClearAllData: 'Clear All Local Data',
       installModalTitle: 'Install AlagaLegal PH on Your Device',
-      installModalIntro: 'Install this app for quick offline access without using app store space:'
+      installModalIntro: 'Install this app for quick offline access without using app store space:',
+      verifiedNote: 'About "Verified" Dates: Dates marked "Verified" indicate when statutory citations were checked against official Philippine government sources (such as the Official Gazette, Supreme Court E-Library, NACC, and PSA). Local office procedures, intake schedules, and municipal fees must always be confirmed directly with the specific office.'
     },
     fil: {
       skipToContent: 'Dumiretso sa pangunahing nilalaman',
@@ -102,9 +105,11 @@
       navFaq: 'FAQ',
       navPlan: 'Aking Plano',
       installApp: 'I-install ang App',
+      btnShare: 'Ibahagi',
+      btnShareAppFull: 'Ibahagi ang App na Ito',
       disclaimerLead: 'Pangkalahatang Impormasyong Legal Lamang:',
       disclaimerShort: 'Nagbibigay ang AlagaLegal PH ng simpleng kaalaman sa batas ng Pilipinas at hindi pamalit sa abogado. Huwag kailanman magpeke ng birth certificate o itago ang tunay na pagkakakilanlan ng bata. Kumonsulta sa PAO, NACC, LSWDO, o lisensyadong abogado.',
-      heroBadge: 'Libreng Serbisyo Publiko • Bataan Pilot at Buong Pilipinas',
+      heroBadge: 'Libreng Serbisyo Publiko • Gabay sa Bataan at Buong Pilipinas',
       heroTitle: 'Nag-aalaga ka ba ng batang hindi mo legal na anak? Alamin ang tamang proseso sa batas.',
       heroMission: '“Walang sinuman ang dapat mapilitang lumabag sa batas dahil lang sa kawalan ng kakayahang unawain ito.”',
       heroDesc: 'Para sa mga lolo, lola, tiyahin, tiyuhin, at tagapag-alaga. Unawain ang legal na adoption, guardianship, at civil registry sa simpleng Filipino at English—kahit walang internet.',
@@ -126,7 +131,7 @@
       cardChecklistDesc: 'Interactive checklist na naka-save sa iyong cellphone upang maiwasan ang kulang na papeles.',
       tagStep4: 'Hakbang 4 • Humingi ng Tulong',
       cardDirectoryTitle: 'Direktoryo ng Tulong Legal at Ahensya',
-      cardDirectoryDesc: 'Opisyal na website ng PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, at Bataan pilot partners.',
+      cardDirectoryDesc: 'Opisyal na website ng PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, at mga opisina sa Bataan.',
       tagStep5: 'Hakbang 5 • Magplano ng Gastos',
       cardCostsTitle: 'Gabay sa Gastos at Proseso',
       cardCostsDesc: 'Alamin kung aling serbisyo ng gobyerno ang libre at saan maaaring magkaroon ng gastusin sa dokumento.',
@@ -169,7 +174,8 @@
       planNotesLabel: 'Isulat ang mga itatanong sa PAO, LSWDO, o Local Civil Registrar:',
       btnClearAllData: 'Burahin Lahat ng Lokal na Data',
       installModalTitle: 'I-install ang AlagaLegal PH sa Iyong Device',
-      installModalIntro: 'I-install ang app na ito para magamit kahit walang internet:'
+      installModalIntro: 'I-install ang app na ito para magamit kahit walang internet:',
+      verifiedNote: 'Tungkol sa Petsang "Verified": Ang petsang nakalagay sa "Verified" ay tumutukoy kung kailan sinuri ang batas sa opisyal na sanggunian ng gobyerno (tulad ng Official Gazette, Supreme Court E-Library, NACC, at PSA). Laging kumpirmahin ang lokal na proseso, oras ng opisina, at bayarin sa mismong tanggapan.'
     }
   };
 
@@ -184,11 +190,11 @@
 
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       if (mediaQuery && mediaQuery.addEventListener) {
-          mediaQuery.addEventListener('change', () => {
-            if (AlagaStorage.getTheme() === 'system') {
-              this.applyTheme('system');
-            }
-          });
+        mediaQuery.addEventListener('change', () => {
+          if (AlagaStorage.getTheme() === 'system') {
+            this.applyTheme('system');
+          }
+        });
       }
     },
 

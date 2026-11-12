@@ -38,6 +38,47 @@
         themeBtn.addEventListener('click', () => AlagaA11y.toggleTheme());
       }
 
+      // Web Share API + Clipboard Fallback
+      const shareHandler = async (triggerBtn) => {
+        const shareUrl = window.location.href.split('#')[0];
+        const shareData = {
+          title: 'AlagaLegal PH – Family Care & Legal Guide',
+          text: 'Free Philippine legal guide & document checklists for grandparents, relatives, and guardians caring for children:',
+          url: shareUrl
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+            AlagaA11y.announce('Shared AlagaLegal PH link.');
+            return;
+          }
+        } catch (err) {
+          if (err && err.name === 'AbortError') return;
+        }
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(shareUrl);
+            const origText = triggerBtn.textContent;
+            triggerBtn.textContent = AlagaA11y.currentLang === 'fil' ? 'Nakopya na!' : 'Link Copied!';
+            AlagaA11y.announce('App link copied to clipboard.');
+            window.setTimeout(() => {
+              triggerBtn.textContent = origText;
+            }, 2200);
+          }
+        } catch (clipErr) {
+          window.prompt('Copy this link to share AlagaLegal PH:', shareUrl);
+        }
+      };
+
+      ['btn-share-app', 'btn-share-app-footer'].forEach((id) => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.addEventListener('click', () => shareHandler(btn));
+        }
+      });
+
       // PWA Install Prompt
       const installBtn = document.getElementById('btn-install-app');
       window.addEventListener('beforeinstallprompt', (e) => {

@@ -67,34 +67,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Native App Page & View Transitions */
-@keyframes viewPageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  @view-transition {
-    navigation: auto;
-  }
-
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.22s;
-    animation-timing-function: ease-out;
-  }
-
-  .app-view.active {
-    animation: viewPageEnter 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -194,11 +166,8 @@ h1, h2, h3, .brand-title {
   color: #FFFFFF;
 }
 
-/* Frosted Glassmorphism Header */
+/* Header Base Layout */
 .app-header {
-  background: rgba(15, 41, 66, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   color: #FFFFFF;
   border-bottom: 2px solid var(--color-gold);
   position: sticky;
@@ -304,7 +273,7 @@ h1, h2, h3, .brand-title {
 
 .desktop-nav {
   display: none;
-  background: rgba(10, 28, 46, 0.86);
+  background: rgba(10, 28, 46, 0.84);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -372,7 +341,7 @@ h1, h2, h3, .brand-title {
   margin-top: 2px;
 }
 
-/* Buttons with Tactile Spring Micro-Interactions */
+/* Buttons Base */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -387,16 +356,6 @@ h1, h2, h3, .brand-title {
   text-decoration: none;
   cursor: pointer;
   border: 1.5px solid transparent;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn:active {
-  transform: scale(0.96);
 }
 
 .btn--small {
@@ -660,17 +619,6 @@ h1, h2, h3, .brand-title {
   }
 }
 
-@keyframes cardRevealUp {
-  from {
-    opacity: 0.35;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .module-card {
   display: flex;
   flex-direction: column;
@@ -682,16 +630,6 @@ h1, h2, h3, .brand-title {
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .module-card {
-      animation: cardRevealUp linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 20%;
-    }
-  }
 }
 
 .module-card:hover {
@@ -1283,25 +1221,17 @@ h1, h2, h3, .brand-title {
   font-style: italic;
 }
 
-/* Mobile Thumb-Friendly Bottom Navigation */
+/* Mobile Bottom Navigation Base */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 120;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--border-color);
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  padding-bottom: max(6px, env(safe-area-inset-bottom, 0px));
   box-shadow: 0 -2px 12px rgba(15, 41, 66, 0.08);
-}
-
-[data-theme="dark"] .bottom-nav {
-  background: rgba(19, 34, 50, 0.92);
 }
 
 @media (min-width: 960px) {
@@ -1458,4 +1388,83 @@ h1, h2, h3, .brand-title {
     border: 1px solid #999;
     break-inside: avoid;
   }
+}
+
+/* ==========================================================================
+   2026 PWA POLISH UPGRADES (View Transitions, Glassmorphism, Spring, Safe-Area)
+   ========================================================================== */
+
+/* 1. View Transitions API (Smooth Cross-Fades Between Views) */
+@keyframes alagaViewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.22s;
+    animation-timing-function: ease-out;
+  }
+
+  .app-view.active {
+    animation: alagaViewFadeIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* 2. Frosted Glassmorphism Header (Light & Dark Mode Compatible) */
+.app-header {
+  background: rgba(15, 41, 66, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] .app-header {
+  background: rgba(11, 21, 32, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] .desktop-nav {
+  background: rgba(8, 16, 25, 0.86);
+}
+
+/* 3. Tactile "Spring" Micro-Interactions on Buttons */
+.btn {
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* 4. iPhone Home-Bar Safe-Area Padding on Bottom Navigation */
+.bottom-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+}
+
+[data-theme="dark"] .bottom-nav {
+  background: rgba(19, 34, 50, 0.92);
 }

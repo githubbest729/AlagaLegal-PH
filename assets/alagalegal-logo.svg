@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">AlagaLegal PH logo</title>
+  <desc id="desc">A navy shield with a teal heart and a gold open-book motif.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12305A"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="224" height="224" rx="52" fill="#F4F7FA"/>
+  <path d="M120 25 194 53v55c0 48-29 83-74 108-45-25-74-60-74-108V53z" fill="url(#bg)"/>
+  <path d="M120 77c-12-20-43-13-43 12 0 22 43 48 43 48s43-26 43-48c0-25-31-32-43-12z" fill="#F8FAFC"/>
+  <path d="M76 153c17-8 31-7 44 2 13-9 27-10 44-2v26c-17-8-31-7-44 2-13-9-27-10-44-2z" fill="#F5C451"/>
+  <path d="M120 155v26" stroke="#12305A" stroke-width="4" stroke-linecap="round"/>
+</svg>

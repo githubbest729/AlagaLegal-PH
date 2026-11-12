@@ -511,7 +511,7 @@
     </section>
   </main>
 
-  <!-- Mobile Bottom Navigation -->
+  <!-- Mobile Thumb-Friendly Bottom Navigation -->
   <nav class="bottom-nav" aria-label="Mobile Bottom Navigation">
     <a href="#home" class="bottom-nav-item active" data-route="home">
       <span class="bottom-nav-icon" aria-hidden="true">⌂</span>
@@ -596,6 +596,25 @@
   <script src="./js/storage.js"></script>
   <script src="./js/accessibility.js"></script>
   <script src="./js/navigation.js"></script>
+  <!-- View Transitions API Hook (Placed immediately after navigation.js so no .js file edits are needed) -->
+  <script>
+    (function () {
+      if (
+        window.AlagaNav &&
+        typeof document.startViewTransition === 'function' &&
+        !window.AlagaNav.activateView.toString().includes('startViewTransition')
+      ) {
+        var origActivate = window.AlagaNav.activateView.bind(window.AlagaNav);
+        window.AlagaNav.activateView = function (route, pushHistory) {
+          var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduced) return origActivate(route, pushHistory);
+          document.startViewTransition(function () {
+            origActivate(route, pushHistory);
+          });
+        };
+      }
+    })();
+  </script>
   <script src="./js/legal-guides.js"></script>
   <script src="./js/checklist.js"></script>
   <script src="./js/app.js"></script>

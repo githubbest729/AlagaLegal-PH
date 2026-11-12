@@ -1,4 +1,4 @@
-/* AlagaLegal PH – Main Application Controller, Web Speech Read Aloud, Personal Action Plan & PWA Lifecycle */
+/* AlagaLegal PH – Main Application Controller, Tagalog MP3 Player, Personal Action Plan & PWA Lifecycle */
 (function (global) {
   'use strict';
 
@@ -20,6 +20,7 @@
       this.initPersonalPlan();
       this.updateDashboardSummary();
       this.bindGlobalControls();
+      this.initTagalogAudioPlayer();
       this.initReadAloud();
       this.initConnectivityMonitor();
       this.registerServiceWorker();
@@ -123,6 +124,56 @@
       });
     },
 
+    initTagalogAudioPlayer() {
+      const toggleBtn = document.getElementById('btn-tagalog-audio-toggle');
+      const audioEl = document.getElementById('tagalog-guide-audio');
+      if (!toggleBtn || !audioEl) return;
+
+      const syncPlayButton = () => {
+        const isPlaying = !audioEl.paused && !audioEl.ended;
+        toggleBtn.setAttribute('aria-pressed', String(isPlaying));
+        toggleBtn.textContent = isPlaying
+          ? '⏸ Pause Guide (Tagalog)'
+          : '🔊 Listen to this Guide (Tagalog)';
+      };
+
+      toggleBtn.addEventListener('click', async () => {
+        if (audioEl.paused || audioEl.ended) {
+          // Stop Web Speech synthesis if active so audio tracks never overlap
+          if ('speechSynthesis' in window) {
+            try {
+              window.speechSynthesis.cancel();
+            } catch (e) {
+              // Ignore
+            }
+          }
+          try {
+            await audioEl.play();
+            AlagaA11y.announce('Playing Tagalog audio guide.');
+          } catch (err) {
+            console.warn('Tagalog audio playback blocked or unavailable:', err);
+          }
+        } else {
+          audioEl.pause();
+          AlagaA11y.announce('Paused Tagalog audio guide.');
+        }
+        syncPlayButton();
+      });
+
+      audioEl.addEventListener('play', syncPlayButton);
+      audioEl.addEventListener('pause', syncPlayButton);
+      audioEl.addEventListener('ended', syncPlayButton);
+
+      // Pause MP3 if user navigates away from Legal Guides
+      document.addEventListener('alagalegal:routechange', (e) => {
+        if (e.detail && e.detail.route !== 'guides' && !audioEl.paused) {
+          audioEl.pause();
+        }
+      });
+
+      syncPlayButton();
+    },
+
     initReadAloud() {
       const readBtn = document.getElementById('btn-read-aloud');
       if (!readBtn) return;
@@ -141,9 +192,9 @@
         const isFil = AlagaA11y.currentLang === 'fil';
         readBtn.setAttribute('aria-pressed', String(isReadingAloud));
         if (isReadingAloud) {
-          readBtn.textContent = isFil ? '⏹ Ihinto ang Pagbasa' : '⏹ Stop Reading';
+          readBtn.textContent = isFil ? '⏹ Ihinto' : '⏹ Stop';
         } else {
-          readBtn.textContent = isFil ? '🔊 Pakinggan' : '🔊 Read Aloud';
+          readBtn.textContent = isFil ? '🔊 Basahin' : '🔊 Read Page';
         }
       };
 
@@ -178,12 +229,17 @@
       const startReadingGuides = () => {
         stopReading();
 
+        // Pause MP3 player if currently playing
+        const audioEl = document.getElementById('tagalog-guide-audio');
+        if (audioEl && !audioEl.paused) {
+          audioEl.pause();
+        }
+
         const guidesList = document.getElementById('guides-list');
         const guideSection = document.getElementById('view-guides');
         const targetContainer = guidesList || guideSection;
         if (!targetContainer) return;
 
-        // Read card-by-card so long legal guides never time out on mobile Chrome
         const cards = Array.from(targetContainer.querySelectorAll('.guide-card'));
         const textChunks = cards.length > 0
           ? cards.map((card) => card.innerText.replace(/\s+/g, ' ').trim()).filter(Boolean)
@@ -198,7 +254,6 @@
 
         isReadingAloud = true;
         updateButtonState();
-        AlagaA11y.announce(isFil ? 'Binabasa nang malakas ang mga gabay.' : 'Reading legal guides aloud.');
 
         let index = 0;
         const speakNext = () => {
@@ -238,7 +293,6 @@
       readBtn.addEventListener('click', () => {
         if (isReadingAloud || window.speechSynthesis.speaking) {
           stopReading();
-          AlagaA11y.announce('Stopped reading aloud.');
         } else {
           startReadingGuides();
         }
@@ -257,7 +311,6 @@
 
       if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
         window.speechSynthesis.onvoiceschanged = () => {
-          // Pre-warm device voice list for mobile browsers
           window.speechSynthesis.getVoices();
         };
       }

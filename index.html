@@ -9,11 +9,21 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="AlagaLegal PH" />
+
+  <!-- OpenGraph Link Preview Metadata -->
+  <meta property="og:title" content="AlagaLegal PH – Family Care & Legal Guide" />
+  <meta property="og:description" content="Free, offline-capable guide for Filipino grandparents, relatives, and guardians on lawful child care, adoption (RA 11642), guardianship, and PSA civil registry." />
+  <meta property="og:type" content="website" />
+
   <title>AlagaLegal PH – Family Care &amp; Legal Guide</title>
 
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+
+  <!-- Branded Deep-Navy iOS Launch Splash Screen (Zero-404 Inline SVG) -->
+  <link rel="apple-touch-startup-image" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1170 2532'%3E%3Crect width='1170' height='2532' fill='%230F2942'/%3E%3Cpath d='M585 960 L735 1015 V1135 C735 1235 668 1302 585 1335 C502 1302 435 1235 435 1135 V1015 Z' fill='none' stroke='%23D99B26' stroke-width='22' stroke-linejoin='round'/%3E%3Ccircle cx='540' cy='1095' r='34' fill='%23FFFFFF'/%3E%3Cpath d='M482 1212 C482 1162 598 1162 598 1212 Z' fill='%23FFFFFF'/%3E%3Ccircle cx='636' cy='1118' r='26' fill='%23F6C85F'/%3E%3Cpath d='M590 1212 C590 1174 682 1174 682 1212 Z' fill='%23F6C85F'/%3E%3Ctext x='585' y='1435' text-anchor='middle' fill='%23FFFFFF' font-family='sans-serif' font-size='56' font-weight='bold'%3EAlagaLegal PH%3C/text%3E%3Ctext x='585' y='1495' text-anchor='middle' fill='%23D9E2EC' font-family='sans-serif' font-size='32'%3EFamily Care %26amp; Legal Guide%3C/text%3E%3C/svg%3E" />
+
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
@@ -43,6 +53,7 @@
 
       <div class="header-controls">
         <button type="button" id="btn-install-app" class="btn btn--small btn--gold no-print" hidden data-i18n="installApp">Install App</button>
+        <button type="button" id="btn-share-app" class="icon-btn no-print" aria-label="Share AlagaLegal PH with family or friends" data-i18n="btnShare">Share</button>
         <button type="button" id="btn-lang-toggle" class="icon-btn lang-btn" aria-label="Switch language between English and Filipino">
           <span id="lang-label">EN → FIL</span>
         </button>
@@ -79,7 +90,7 @@
     <!-- 1. HOME DASHBOARD VIEW -->
     <section id="view-home" class="app-view active" aria-labelledby="home-hero-heading">
       <div class="hero-card">
-        <span class="hero-badge" data-i18n="heroBadge">Free Public-Service Guide • Bataan Pilot &amp; Nationwide PH</span>
+        <span class="hero-badge" data-i18n="heroBadge">Free Public-Service Resource • Bataan Community Guide &amp; Nationwide PH</span>
         <h1 id="home-hero-heading" data-i18n="heroTitle">Caring for a child who is not legally yours? Understand your lawful options.</h1>
         <blockquote class="hero-mission" data-i18n="heroMission">“Nobody should have to break the law simply because they cannot afford to understand it.”</blockquote>
         <p class="hero-desc" data-i18n="heroDesc">Built for Filipino grandparents, aunts, uncles, and guardians. Learn lawful adoption, guardianship, and civil registry steps in simple English and Filipino—even offline.</p>
@@ -130,7 +141,7 @@
         <a href="#directory" class="module-card" data-route="directory">
           <span class="module-tag" data-i18n="tagStep4">Step 4 • Get Help</span>
           <h3 data-i18n="cardDirectoryTitle">Legal Aid &amp; Agency Directory</h3>
-          <p data-i18n="cardDirectoryDesc">Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan pilot partners.</p>
+          <p data-i18n="cardDirectoryDesc">Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan community offices.</p>
         </a>
 
         <a href="#costs" class="module-card" data-route="costs">
@@ -269,9 +280,9 @@
             <tbody>
               <tr>
                 <td><strong>1. Civil Registry Copies</strong><br />(Birth, Marriage, Death, CENOMAR)</td>
-                <td>PSA CRS Outlet / Local Civil Registry Office (LCRO)</td>
+                <td>PSA CRS Outlet / PSA E-Certificate / LCRO</td>
                 <td>Standard government documentary stamp / copy fees</td>
-                <td>Check current rates on <strong>psa.gov.ph</strong> or your City/Municipal Hall.</td>
+                <td>Check current paper or digital E-Certificate rates on <strong>psa.gov.ph</strong> or your City/Municipal Hall.</td>
               </tr>
               <tr>
                 <td><strong>2. Barangay &amp; Police Clearances</strong><br />(Indigency, Custody Cert, NBI/PNP)</td>
@@ -418,8 +429,13 @@
 
   <footer class="app-footer">
     <div class="container">
-      <p><strong>AlagaLegal PH</strong> – Free &amp; Open-Source Public Legal Literacy Initiative (Bataan Pilot &amp; Nationwide Philippines).</p>
-      <p class="muted-text">Always verify legal procedures with the National Authority for Child Care (NACC), Public Attorney's Office (PAO), Local Social Welfare Office (LSWDO), or a licensed Philippine lawyer.</p>
+      <div class="card-footer-actions">
+        <div>
+          <p><strong>AlagaLegal PH</strong> – Free &amp; Open-Source Public Legal Literacy Initiative (Bataan Community Guide &amp; Nationwide Philippines).</p>
+          <p class="muted-text" data-i18n="verifiedNote"><strong>About "Verified" Dates:</strong> Dates marked "Verified" indicate when statutory citations were checked against official Philippine government sources (such as the Official Gazette, Supreme Court E-Library, NACC, and PSA). Local office procedures, intake schedules, and municipal fees must always be confirmed directly with the specific office.</p>
+        </div>
+        <button type="button" id="btn-share-app-footer" class="btn btn--small btn--secondary no-print" data-i18n="btnShareAppFull">Share This App</button>
+      </div>
     </div>
   </footer>
 

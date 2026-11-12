@@ -1,0 +1,214 @@
+---
+
+### PHASE 3: Image & Icon Asset Generation (`scripts/generate-assets.mjs`)
+
+Because binary PNG and ICO files cannot be embedded directly in plain-text responses, save the zero-dependency Node.js script below as `scripts/generate-assets.mjs` and run `node scripts/generate-assets.mjs`. It uses only Node's built-in `fs`, `path`, and `zlib` modules to generate every required PNG icon (`72` through `512`, maskable icons, `16x16` & `32x32` favicons, `apple-touch-icon.png`), a valid `favicon.ico`, and both PWA manifest screenshots (`screenshots/screenshot-mobile.png` and `screenshots/screenshot-desktop.png`).
+
+#### 21. `scripts/generate-assets.mjs`
+```javascript
+#!/usr/bin/env node
+/**
+ * Zero-dependency binary PNG & ICO generator for AlagaLegal PH PWA.
+ * Generates all required icons, maskable icons, apple-touch-icon, favicon.ico,
+ * and manifest screenshots using Node.js built-in zlib + fs.
+ *
+ * Usage: node scripts/generate-assets.mjs
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import zlib from 'node:zlib';
+
+const ROOT = process.cwd();
+const ICONS_DIR = path.join(ROOT, 'icons');
+const SCREENSHOTS_DIR = path.join(ROOT, 'screenshots');
+
+fs.mkdirSync(ICONS_DIR, { recursive: true });
+fs.mkdirSync(SCREENSHOTS_DIR, { recursive: true });
+
+// CRC32 table for valid PNG chunk checksums
+const CRC_TABLE = new Uint32Array(256);
+for (let n = 0; n < 256; n++) {
+  let c = n;
+  for (let k = 0; k < 8; k++) {
+    c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+  }
+  CRC_TABLE[n] = c >>> 0;
+}
+
+function crc32(buf) {
+  let crc = 0xffffffff;
+  for (let i = 0; i < buf.length; i++) {
+    crc = CRC_TABLE[(crc ^ buf[i]) & 0xff] ^ (crc >>> 8);
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function pngChunk(type, data) {
+  const typeBuf = Buffer.from(type, 'ascii');
+  const lenBuf = Buffer.alloc(4);
+  lenBuf.writeUInt32BE(data.length, 0);
+  const crcBuf = Buffer.alloc(4);
+  crcBuf.writeUInt32BE(crc32(Buffer.concat([typeBuf, data])), 0);
+  return Buffer.concat([lenBuf, typeBuf, data, crcBuf]);
+}
+
+function encodePNG(width, height, rgbaBuffer) {
+  const signature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(width, 0);
+  ihdr.writeUInt32BE(height, 4);
+  ihdr[8] = 8; // bit depth
+  ihdr[9] = 6; // RGBA
+  ihdr[10] = 0;
+  ihdr[11] = 0;
+  ihdr[12] = 0;
+
+  const stride = width * 4;
+  const raw = Buffer.alloc((stride + 1) * height);
+  for (let y = 0; y < height; y++) {
+    raw[y * (stride + 1)] = 0; // filter None
+    rgbaBuffer.copy(raw, y * (stride + 1) + 1, y * stride, (y + 1) * stride);
+  }
+
+  const compressed = zlib.deflateSync(raw, { level: 9 });
+  return Buffer.concat([
+    signature,
+    pngChunk('IHDR', ihdr),
+    pngChunk('IDAT', compressed),
+    pngChunk('IEND', Buffer.alloc(0))
+  ]);
+}
+
+function renderBrandIcon(size, maskable = false) {
+  const buf = Buffer.alloc(size * size * 4);
+  const pad = maskable ? size * 0.14 : size * 0.04;
+  const radius = maskable ? 0 : size * 0.2;
+
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const idx = (y * size + x) * 4;
+      const nx = x / size;
+      const ny = y / size;
+
+      // Deep Navy (#0F2942) to Civic Teal (#0D7377) diagonal gradient
+      const t = Math.min(1, Math.max(0, (nx + ny) * 0.5));
+      let r = Math.round(15 * (1 - t) + 13 * t);
+      let g = Math.round(41 * (1 - t) + 115 * t);
+      let b = Math.round(66 * (1 - t) + 119 * t);
+      let a = 255;
+
+      // Rounded corners for standard icons
+      if (!maskable) {
+        const dx = Math.max(radius - x, 0, x - (size - 1 - radius));
+        const dy = Math.max(radius - y, 0, y - (size - 1 - radius));
+        if (dx * dx + dy * dy > radius * radius) {
+          a = 0;
+        }
+      }
+
+      // Warm Gold shield border & central family care emblem
+      const cx = size * 0.5;
+      const cy = size * 0.5;
+      const rx = (x - cx) / (size * 0.5 - pad);
+      const ry = (y - cy) / (size * 0.5 - pad);
+
+      // Shield outline
+      const inShieldOuter = Math.abs(rx) <= 0.68 && ry >= -0.72 && ry <= 0.76 && (ry < 0.15 || Math.abs(rx) <= 0.68 * (1 - (ry - 0.15) / 0.65));
+      const inShieldInner = Math.abs(rx) <= 0.57 && ry >= -0.61 && ry <= 0.64 && (ry < 0.15 || Math.abs(rx) <= 0.57 * (1 - (ry - 0.15) / 0.53));
+
+      if (a > 0 && inShieldOuter && !inShieldInner) {
+        r = 217; g = 155; b = 38; // Warm Gold #D99B26
+      }
+
+      // Caregiver & child silhouette circles inside shield
+      const dAdultHead = Math.hypot(rx + 0.14, ry + 0.14);
+      const dChildHead = Math.hypot(rx - 0.17, ry + 0.05);
+      const inAdultBody = Math.hypot(rx + 0.14, (ry - 0.24) * 1.1) <= 0.24 && ry <= 0.34;
+      const inChildBody = Math.hypot(rx - 0.17, (ry - 0.27) * 1.15) <= 0.19 && ry <= 0.34;
+
+      if (a > 0 && (dAdultHead <= 0.12 || inAdultBody)) {
+        r = 255; g = 255; b = 255;
+      } else if (a > 0 && (dChildHead <= 0.095 || inChildBody)) {
+        r = 246; g = 200; b = 95;
+      }
+
+      buf[idx] = r;
+      buf[idx + 1] = g;
+      buf[idx + 2] = b;
+      buf[idx + 3] = a;
+    }
+  }
+
+  return encodePNG(size, size, buf);
+}
+
+function renderScreenshot(width, height) {
+  const buf = Buffer.alloc(width * height * 4);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const idx = (y * width + x) * 4;
+      // Soft off-white canvas (#F7F9FB)
+      let r = 247, g = 249, b = 251;
+
+      // Top Navy Header Bar
+      if (y < 76) {
+        r = 15; g = 41; b = 66;
+      } else if (y < 80) {
+        r = 217; g = 155; b = 38; // Gold accent border
+      } else if (x > 28 && x < width - 28 && y > 104 && y < 270) {
+        // Hero Banner Card
+        r = 13; g = 115; b = 119;
+      } else if (x > 28 && x < width - 28 && y > 294 && y < height - 48) {
+        // White content cards
+        const band = (y - 294) % 130;
+        if (band < 110) {
+          r = 255; g = 255; b = 255;
+        }
+      }
+
+      buf[idx] = r;
+      buf[idx + 1] = g;
+      buf[idx + 2] = b;
+      buf[idx + 3] = 255;
+    }
+  }
+  return encodePNG(width, height, buf);
+}
+
+function buildIcoFromPng(png32Buffer) {
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0, 0); // reserved
+  header.writeUInt16LE(1, 2); // type = ICO
+  header.writeUInt16LE(1, 4); // 1 image
+
+  const entry = Buffer.alloc(16);
+  entry[0] = 32; // width
+  entry[1] = 32; // height
+  entry[2] = 0;  // color palette
+  entry[3] = 0;  // reserved
+  entry.writeUInt16LE(1, 4);  // color planes
+  entry.writeUInt16LE(32, 6); // bits per pixel
+  entry.writeUInt32LE(png32Buffer.length, 8);
+  entry.writeUInt32LE(22, 12); // offset (6 + 16)
+
+  return Buffer.concat([header, entry, png32Buffer]);
+}
+
+const standardSizes = [72, 96, 128, 144, 152, 192, 384, 512];
+for (const size of standardSizes) {
+  fs.writeFileSync(path.join(ICONS_DIR, `icon-${size}.png`), renderBrandIcon(size, false));
+}
+
+fs.writeFileSync(path.join(ICONS_DIR, 'icon-maskable-192.png'), renderBrandIcon(192, true));
+fs.writeFileSync(path.join(ICONS_DIR, 'icon-maskable-512.png'), renderBrandIcon(512, true));
+fs.writeFileSync(path.join(ICONS_DIR, 'favicon-16x16.png'), renderBrandIcon(16, false));
+
+const png32 = renderBrandIcon(32, false);
+fs.writeFileSync(path.join(ICONS_DIR, 'favicon-32x32.png'), png32);
+fs.writeFileSync(path.join(ROOT, 'favicon.ico'), buildIcoFromPng(png32));
+fs.writeFileSync(path.join(ROOT, 'apple-touch-icon.png'), renderBrandIcon(180, false));
+
+fs.writeFileSync(path.join(SCREENSHOTS_DIR, 'screenshot-mobile.png'), renderScreenshot(540, 960));
+fs.writeFileSync(path.join(SCREENSHOTS_DIR, 'screenshot-desktop.png'), renderScreenshot(1280, 800));
+
+console.log('Generated all AlagaLegal PH icons, favicon.ico, apple-touch-icon.png, and screenshots.');

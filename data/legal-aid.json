@@ -1,0 +1,86 @@
+[
+  {
+    "id": "nacc",
+    "acronym": "NACC / RACCO",
+    "type": "child-care",
+    "name": "National Authority for Child Care (NACC) & Regional Alternative Child Care Offices",
+    "coverage": "Nationwide (Region III RACCO covers Bataan)",
+    "descriptionEn": "Lead quasi-judicial government agency handling domestic administrative adoption, relative adoption, foster care licensing, and CDCLAA applications under RA 11642.",
+    "descriptionFil": "Pangunahing ahensya ng gobyerno na nangangasiwa sa domestic administrative adoption, relative adoption, foster care, at CDCLAA sa ilalim ng RA 11642.",
+    "whereToVisit": "Regional Alternative Child Care Office (RACCO) in your region or coordinate via your City/Municipal LSWDO.",
+    "verificationNote": "Verify current regional office address and intake schedule via the official NACC website.",
+    "website": "[https://www.nacc.gov.ph](https://www.nacc.gov.ph)"
+  },
+  {
+    "id": "pao",
+    "acronym": "PAO",
+    "type": "legal-aid",
+    "name": "Public Attorney's Office (PAO)",
+    "coverage": "Nationwide (District Offices in Bataan & all provinces)",
+    "descriptionEn": "Provides free legal counseling, notarization of affidavits, and court representation (such as judicial guardianship or Rule 108 petitions) to qualified indigent Filipinos.",
+    "descriptionFil": "Nagbibigay ng libreng payong legal, notaryo ng affidavit, at representasyon sa korte sa mga kwalipikadong indigent na Pilipino.",
+    "whereToVisit": "PAO District Office usually located at the Hall of Justice or Provincial/City Capitol compound.",
+    "verificationNote": "Bring Barangay Certificate of Indigency and proof of income; eligibility is subject to PAO Indigency and Merit Tests.",
+    "website": "[https://pao.gov.ph](https://pao.gov.ph)"
+  },
+  {
+    "id": "dswd",
+    "acronym": "DSWD",
+    "type": "child-care",
+    "name": "Department of Social Welfare and Development (DSWD)",
+    "coverage": "Nationwide (Field Office III covers Central Luzon / Bataan)",
+    "descriptionEn": "Provides social welfare programs, crisis intervention (AICS), child protection referrals, and coordination with Local Social Welfare Offices.",
+    "descriptionFil": "Nagbibigay ng programang panlipunan, tulong pinansyal sa krisis (AICS), at referral para sa proteksyon ng bata.",
+    "whereToVisit": "DSWD Regional Field Office or Social Welfare and Development (SWAD) Provincial Team.",
+    "verificationNote": "Confirm program eligibility and office hours directly on dswd.gov.ph or at your LSWDO.",
+    "website": "[https://www.dswd.gov.ph](https://www.dswd.gov.ph)"
+  },
+  {
+    "id": "lswdo-bataan",
+    "acronym": "LSWDO / MSWDO / CSWDO",
+    "type": "pilot-bataan",
+    "name": "Local Social Welfare and Development Offices (Bataan Pilot & Nationwide LGUs)",
+    "coverage": "Every City & Municipality (e.g., Balanga City & Bataan Municipalities)",
+    "descriptionEn": "Your closest frontline government office for child welfare intake, Social Case Study Reports, Solo Parent ID assessment (RA 11861), and referrals to RACCO/NACC.",
+    "descriptionFil": "Pinakamalapit na opisina sa munisipyo o lungsod para sa paunang pagtatasa ng social worker, Social Case Study Report, Solo Parent ID, at referral sa NACC.",
+    "whereToVisit": "City Hall or Municipal Hall (Social Welfare Office) in your locality.",
+    "verificationNote": "Visit your city/municipal hall directly to confirm intake days and required barangay endorsements.",
+    "website": "[https://bataan.gov.ph](https://bataan.gov.ph)"
+  },
+  {
+    "id": "lcro",
+    "acronym": "LCRO",
+    "type": "civil-registry",
+    "name": "Local Civil Registry Office (City / Municipal Civil Registrar)",
+    "coverage": "Every City & Municipality",
+    "descriptionEn": "Handles birth registration, late registration, Certificate of Foundling recording, RA 9048/10172 clerical corrections, and RA 9255 surname acknowledgment.",
+    "descriptionFil": "Nangangasiwa sa pagpaparehistro ng kapanganakan, late registration, Certificate of Foundling, at pagtatama sa ilalim ng RA 9048/10172.",
+    "whereToVisit": "Local Civil Registry Office at the City or Municipal Hall where the birth occurred or where you reside.",
+    "verificationNote": "Confirm exact municipal filing fees and documentary checklists at your local City/Municipal Hall.",
+    "website": "[https://psa.gov.ph](https://psa.gov.ph)"
+  },
+  {
+    "id": "psa",
+    "acronym": "PSA",
+    "type": "civil-registry",
+    "name": "Philippine Statistics Authority (PSA) – Civil Registration Services",
+    "coverage": "Nationwide CRS Outlets & Online Portal",
+    "descriptionEn": "Issues security-paper copies of Certificates of Live Birth, Marriage Certificates, Death Certificates, CENOMAR, and annotated civil registry records.",
+    "descriptionFil": "Naglalabas ng opisyal na PSA Birth Certificate, Marriage Certificate, Death Certificate, CENOMAR, at annotated records.",
+    "whereToVisit": "PSA Civil Registry System (CRS) Outlets or official PSA Serbilis portal.",
+    "verificationNote": "Use only official PSA outlets or verified government portals; avoid unofficial fixers.",
+    "website": "[https://psa.gov.ph](https://psa.gov.ph)"
+  },
+  {
+    "id": "ibp",
+    "acronym": "IBP NCLA",
+    "type": "legal-aid",
+    "name": "Integrated Bar of the Philippines (IBP) – National Center for Legal Aid & Provincial Chapters",
+    "coverage": "Nationwide (Including IBP Bataan Chapter)",
+    "descriptionEn": "Provides free legal consultations and pro bono legal assistance to qualified indigent litigants through local IBP provincial chapters.",
+    "descriptionFil": "Nagbibigay ng libreng konsultasyong legal at pro bono na tulong sa mga kwalipikadong indigent sa pamamagitan ng mga provincial chapter ng IBP.",
+    "whereToVisit": "IBP Provincial Chapter Office (often at the Hall of Justice) or via IBP National Center for Legal Aid.",
+    "verificationNote": "Confirm walk-in consultation schedules directly with your local IBP chapter.",
+    "website": "[https://ibp.ph](https://ibp.ph)"
+  }
+]

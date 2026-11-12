@@ -1,0 +1,133 @@
+[
+  {
+    "id": "domestic-administrative-adoption",
+    "category": "adoption",
+    "lawCitation": "Republic Act No. 11642 (Domestic Administrative Adoption and Alternative Child Care Act)",
+    "titleEn": "Domestic Administrative Adoption (Including Relative Adoption)",
+    "titleFil": "Administratibong Pag-aampon sa Pilipinas (Kasama ang Relative Adoption)",
+    "summaryEn": "RA 11642 removed regular domestic adoption from the courts and placed it under the National Authority for Child Care (NACC) and its Regional Alternative Child Care Offices (RACCOs). Relatives within the 4th civil degree (grandparents, aunts, uncles) may apply for Relative Adoption.",
+    "summaryFil": "Inilipat ng RA 11642 ang regular domestic adoption mula sa korte patungo sa National Authority for Child Care (NACC) at Regional Alternative Child Care Offices (RACCOs). Ang mga kamag-anak hanggang 4th degree (lolo, lola, tiyahin, tiyuhin) ay maaaring mag-aplay ng Relative Adoption.",
+    "stepsEn": [
+      "Attend a Pre-Adoption Orientation Seminar or inquire at your City/Municipal Social Welfare and Development Office (LSWDO) or Regional RACCO.",
+      "Submit required personal, medical, financial, and civil registry documents so a licensed social worker can conduct a Home Study Report and Child Case Study Report.",
+      "Ensure written consent of the child (if 10 years old or above) and biological parents (unless the child has a Certificate Declaring a Child Legally Available for Adoption – CDCLAA).",
+      "RACCO reviews the petition and forwards its recommendation to the NACC Executive Director for issuance of the Order of Adoption.",
+      "Once the Order of Adoption becomes final, NACC transmits it to the Local Civil Registrar and PSA to issue an amended Certificate of Live Birth while sealing the original birth record."
+    ],
+    "stepsFil": [
+      "Dumalo sa Pre-Adoption Orientation o magtanong sa inyong City/Municipal Social Welfare and Development Office (LSWDO) o Regional RACCO.",
+      "Isumite ang mga dokumento (PSA, medical, NBI/police clearance, katibayan ng kabuhayan) para sa Home Study Report at Child Case Study Report ng social worker.",
+      "Kunin ang nakasulat na pahintulot ng bata (kung 10 taong gulang pataas) at ng tunay na magulang (maliban kung may CDCLAA na ang bata).",
+      "Susuriin ng RACCO ang petisyon at ipapasa sa NACC Executive Director para sa paglabas ng Order of Adoption.",
+      "Kapag pinal na ang Order of Adoption, ipapadala ito sa Local Civil Registrar at PSA para sa bagong Certificate of Live Birth."
+    ],
+    "sourceName": "National Authority for Child Care (NACC) – Official Website",
+    "sourceUrl": "[https://www.nacc.gov.ph](https://www.nacc.gov.ph)",
+    "lastVerified": "2026-11-12",
+    "requiresLocalConfirmation": true
+  },
+  {
+    "id": "substitute-parental-authority",
+    "category": "guardianship",
+    "lawCitation": "Executive Order No. 209 (Family Code of the Philippines, Articles 214 & 216)",
+    "titleEn": "Substitute Parental Authority for Grandparents and Relatives",
+    "titleFil": "Substitute Parental Authority para sa Lolo, Lola, at Kamag-anak",
+    "summaryEn": "When biological parents are deceased, absent, or unsuitable, Philippine law designates who exercises substitute parental authority in order: (1) surviving grandparent, (2) oldest sibling over 21, or (3) actual custodian over 21.",
+    "summaryFil": "Kung pumanaw, nawawala, o walang kakayahan ang magulang, itinatakda ng batas kung sino ang may substitute parental authority: (1) nabubuhay na lolo o lola, (2) pinakamatandang kapatid na higit 21 taong gulang, o (3) kasalukuyang tagapag-alaga na higit 21 taong gulang.",
+    "stepsEn": [
+      "Gather proof of the child's identity (PSA Birth Certificate) and proof of your relationship to the child.",
+      "Secure a Barangay Certification confirming that the child is actually living under your care and custody.",
+      "If biological parents are alive and reachable, obtain a notarized Special Power of Attorney (SPA) authorizing you to handle school enrollment, medical treatment, and PhilHealth.",
+      "Request an intake interview with your LSWDO if the parents have abandoned the child or cannot be contacted, so a social worker can issue an official assessment or guide you toward guardianship or adoption."
+    ],
+    "stepsFil": [
+      "Ihanda ang PSA Birth Certificate ng bata at patunay ng iyong relasyon sa bata.",
+      "Kumuha ng Barangay Certification na nagpapatunay na ang bata ay nasa iyong pangangalaga.",
+      "Kung buhay at nakakausap ang magulang, kumuha ng notarized Special Power of Attorney (SPA) para sa paaralan, ospital, at PhilHealth.",
+      "Makipag-ugnayan sa LSWDO kung inabandona o hindi makontak ang magulang para sa opisyal na assessment ng social worker."
+    ],
+    "sourceName": "Supreme Court E-Library – Family Code of the Philippines (E.O. No. 209)",
+    "sourceUrl": "[https://elibrary.judiciary.gov.ph](https://elibrary.judiciary.gov.ph)",
+    "lastVerified": "2026-11-12",
+    "requiresLocalConfirmation": true
+  },
+  {
+    "id": "legal-guardianship-minors",
+    "category": "guardianship",
+    "lawCitation": "A.M. No. 03-02-05-SC (Rule on Guardianship of Minors)",
+    "titleEn": "Judicial Legal Guardianship of a Minor",
+    "titleFil": "Legal Guardianship ng Menor de Edad sa Korte",
+    "summaryEn": "Legal guardianship is a court order issued by a Family Court authorizing a relative or qualified adult to care for a minor's person and/or manage the minor's property or survivor benefits.",
+    "summaryFil": "Ang Legal Guardianship ay utos ng Family Court na nagbibigay ng pormal na awtoridad sa isang kamag-anak o kwalipikadong adulto upang pangalagaan ang menor de edad at/o pamahalaan ang kanyang ari-arian o benepisyo.",
+    "stepsEn": [
+      "Consult the Public Attorney's Office (PAO) if you are an indigent caregiver, or consult a private Family Law attorney.",
+      "Prepare a verified Petition for Guardianship stating the minor's age, the grounds (death, absence, or incapacity of parents), and the value of any property/benefits involved.",
+      "File the petition before the Regional Trial Court (Family Court) where the minor resides.",
+      "Comply with court notice, publication (if ordered), and social worker case study requirements.",
+      "Attend the hearing and take the guardian's oath upon issuance of Letters of Guardianship."
+    ],
+    "stepsFil": [
+      "Kumonsulta sa Public Attorney's Office (PAO) kung kwalipikado bilang indigent, o sa pribadong abogado.",
+      "Maghanda ng verified Petition for Guardianship na nagsasaad ng edad ng bata, dahilan (pagpanaw o pagkawala ng magulang), at halaga ng benepisyo o ari-arian.",
+      "Ihain ang petisyon sa Regional Trial Court (Family Court) kung saan nakatira ang bata.",
+      "Sundin ang utos ng korte tungkol sa abiso, publikasyon, at social worker case study.",
+      "Dumalo sa pagdinig at manumpa bilang guardian kapag inilabas na ang Letters of Guardianship."
+    ],
+    "sourceName": "Public Attorney's Office (PAO) – Official Portal",
+    "sourceUrl": "[https://pao.gov.ph](https://pao.gov.ph)",
+    "lastVerified": "2026-11-12",
+    "requiresLocalConfirmation": true
+  },
+  {
+    "id": "birth-certificate-correction",
+    "category": "civil-registry",
+    "lawCitation": "Republic Act No. 9048, Republic Act No. 10172 & Republic Act No. 9255",
+    "titleEn": "Correcting Birth Certificate Errors & Surname Rules",
+    "titleFil": "Pagtatama ng Maling Impormasyon sa Birth Certificate",
+    "summaryEn": "Clerical or typographical errors in a first name, nickname, day/month of birth, or sex (if patently clerical) may be corrected administratively at the Local Civil Registry Office (LCRO) without going to court.",
+    "summaryFil": "Ang mga clerical o typographical error sa unang pangalan, araw/buwan ng kapanganakan, o kasarian (kung malinaw na pagkakamali sa pag-type) ay maaaring itama sa Local Civil Registry Office (LCRO) nang hindi na pumupunta sa korte.",
+    "stepsEn": [
+      "Obtain certified copies of the birth certificate from both the Philippine Statistics Authority (PSA) and the Local Civil Registry Office (LCRO) where the birth was recorded.",
+      "Gather at least two public or private documents showing the correct entry (e.g., earliest school records Form 137, baptismal certificate, medical/immunization records).",
+      "File a verified administrative petition under RA 9048 or RA 10172 at the LCRO (or as a migrant petition at your current city/municipality LCRO).",
+      "Complete the mandatory posting or newspaper publication requirement.",
+      "Once approved by the LCRO and affirmed by the Civil Registrar General (PSA), request the newly annotated PSA Birth Certificate."
+    ],
+    "stepsFil": [
+      "Kumuha ng kopya ng birth certificate mula sa PSA at sa Local Civil Registry Office (LCRO) kung saan ipinarehistro ang bata.",
+      "Magtipon ng hindi bababa sa dalawang dokumento na nagpapakita ng tamang impormasyon (tulad ng Form 137 sa paaralan, baptismal certificate, o immunization record).",
+      "Maghain ng petisyon sa ilalim ng RA 9048 o RA 10172 sa LCRO.",
+      "Kumpletuhin ang kinakailangang posting o publikasyon.",
+      "Kapag naaprubahan ng LCRO at PSA, kumuha ng bagong PSA Birth Certificate na may annotation."
+    ],
+    "sourceName": "Philippine Statistics Authority (PSA) – Civil Registration",
+    "sourceUrl": "[https://psa.gov.ph](https://psa.gov.ph)",
+    "lastVerified": "2026-11-12",
+    "requiresLocalConfirmation": true
+  },
+  {
+    "id": "foundling-abandoned-protection",
+    "category": "protection",
+    "lawCitation": "Republic Act No. 11767 (Foundling Recognition and Protection Act)",
+    "titleEn": "Protection & Registration of Foundlings and Abandoned Children",
+    "titleFil": "Proteksyon at Pagpaparehistro ng Foundling at Inabandonang Bata",
+    "summaryEn": "RA 11767 guarantees that a foundling found in the Philippines is recognized as a natural-born Filipino citizen and establishes a safe, lawful registration process through LSWDO, NACC, and the Local Civil Registrar.",
+    "summaryFil": "Tinitiyak ng RA 11767 na ang batang natagpuan sa Pilipinas (foundling) ay kinikilala bilang natural-born Filipino citizen at may ligtas na proseso ng pagpaparehistro sa tulong ng LSWDO, NACC, at Local Civil Registrar.",
+    "stepsEn": [
+      "Immediately report the discovery or custody of an abandoned infant/child to the Barangay Council for the Protection of Children (BCPC), PNP Women and Children Protection Desk, and LSWDO.",
+      "Cooperate with the LSWDO social worker in documenting the circumstances and preparing a Social Case Study Report.",
+      "Coordinate with NACC/RACCO and the Local Civil Registrar for the issuance of a Certificate of Foundling.",
+      "If you wish to continue caring for the child lawfully, apply to become a licensed Foster Parent (RA 10165) or pursue adoption through NACC once the child is declared legally available (CDCLAA)."
+    ],
+    "stepsFil": [
+      "Ipagbigay-alam agad sa Barangay Council for the Protection of Children (BCPC), PNP Women and Children Protection Desk, at LSWDO ang pagkakatagpo o pag-aalaga sa inabandonang bata.",
+      "Makipagtulungan sa LSWDO social worker para sa dokumentasyon at Social Case Study Report.",
+      "Makipag-ugnayan sa NACC/RACCO at Local Civil Registrar para sa Certificate of Foundling.",
+      "Kung nais ipagpatuloy ang legal na pag-aalaga, mag-aplay bilang lisensyadong Foster Parent (RA 10165) o dumaan sa proseso ng NACC."
+    ],
+    "sourceName": "Department of Social Welfare and Development (DSWD) & NACC",
+    "sourceUrl": "[https://www.dswd.gov.ph](https://www.dswd.gov.ph)",
+    "lastVerified": "2026-11-12",
+    "requiresLocalConfirmation": true
+  }
+]

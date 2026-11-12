@@ -1,0 +1,254 @@
+[
+  {
+    "id": "domestic-adoption",
+    "titleEn": "Domestic Administrative / Relative Adoption (RA 11642)",
+    "titleFil": "Domestic Administrative / Relative Adoption (RA 11642)",
+    "filingOfficeEn": "Regional Alternative Child Care Office (RACCO / NACC) or initial intake via your City/Municipal Social Welfare and Development Office (LSWDO). Confirm exact checklist at your regional RACCO.",
+    "filingOfficeFil": "Regional Alternative Child Care Office (RACCO / NACC) o paunang pagtatasa sa City/Municipal Social Welfare and Development Office (LSWDO). Kumpirmahin ang eksaktong listahan sa inyong RACCO.",
+    "items": [
+      {
+        "id": "psa-birth-applicant",
+        "nameEn": "PSA Certificate of Live Birth of the Prospective Adoptive Parent(s)",
+        "nameFil": "PSA Certificate of Live Birth ng Mag-aampon",
+        "reasonEn": "Verifies your identity, age (at least 25 years old), and degree of relationship in Relative Adoption.",
+        "reasonFil": "Nagpapatunay ng iyong pagkakakilanlan, edad (hindi bababa sa 25 taong gulang), at relasyon sa bata.",
+        "whereToGet": "PSA Serbilis / CRS Outlet",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "psa-birth-child",
+        "nameEn": "PSA Certificate of Live Birth (or Certificate of Foundling) of the Child",
+        "nameFil": "PSA Certificate of Live Birth (o Certificate of Foundling) ng Bata",
+        "reasonEn": "Establishes the child's registered identity, age, and biological parentage on record.",
+        "reasonFil": "Nagpapatunay ng nakarehistrong pangalan, edad, at magulang ng bata.",
+        "whereToGet": "PSA / Local Civil Registry Office",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "psa-marriage-cenomar",
+        "nameEn": "PSA Marriage Certificate (if married) or CENOMAR (if single)",
+        "nameFil": "PSA Marriage Certificate (kung kasal) o CENOMAR (kung walang asawa)",
+        "reasonEn": "Required to verify civil status and joint spousal filing rules under RA 11642.",
+        "reasonFil": "Kinakailangan upang patunayan ang civil status at kung magkasamang mag-aaplay ang mag-asawa.",
+        "whereToGet": "PSA",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "medical-cert",
+        "nameEn": "Recent Medical Certificate & Psychological Evaluation (as required by RACCO)",
+        "nameFil": "Bagong Medical Certificate at Psychological Evaluation (kung hinihingi ng RACCO)",
+        "reasonEn": "Shows physical and mental fitness to raise and care for a child.",
+        "reasonFil": "Nagpapakita ng pisikal at mental na kakayahang mag-alaga ng bata.",
+        "whereToGet": "Government Hospital / Licensed Physician & Psychologist",
+        "verifyWithOffice": true
+      },
+      {
+        "id": "nbi-police-clearance",
+        "nameEn": "Valid NBI Clearance and Police Clearance",
+        "nameFil": "Balidong NBI Clearance at Police Clearance",
+        "reasonEn": "Protects the child by confirming the applicant has no disqualifying criminal record.",
+        "reasonFil": "Pinoprotektahan ang bata sa pamamagitan ng pagtiyak na walang kasong kriminal ang mag-aampon.",
+        "whereToGet": "NBI / Local PNP Station",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "proof-of-income",
+        "nameEn": "Proof of Financial Capacity (ITR, Certificate of Employment, Pension, or Barangay Indigency/Livelihood Proof)",
+        "nameFil": "Patunay ng Kabuhayan (ITR, Certificate of Employment, Pensyon, o Katibayan ng Kita)",
+        "reasonEn": "Demonstrates ability to provide basic support for the child; relative adopters are assessed compassionately by social workers.",
+        "reasonFil": "Nagpapakita ng kakayahang sumuporta sa pangangailangan ng bata.",
+        "whereToGet": "Employer / BIR / SSS / GSIS / LGU",
+        "verifyWithOffice": true
+      },
+      {
+        "id": "written-consent",
+        "nameEn": "Written Consent of Biological Parent(s) or CDCLAA, plus Child's Consent (if age 10+)",
+        "nameFil": "Nakasulat na Pahintulot ng Tunay na Magulang o CDCLAA, at Pahintulot ng Bata (kung 10+ taong gulang)",
+        "reasonEn": "Mandatory legal consent required before parental authority can be transferred.",
+        "reasonFil": "Mahalagang legal na pahintulot bago mailipat ang parental authority.",
+        "whereToGet": "Assisted by LSWDO / RACCO Social Worker",
+        "verifyWithOffice": true
+      }
+    ]
+  },
+  {
+    "id": "legal-guardianship",
+    "titleEn": "Judicial Legal Guardianship of a Minor (A.M. No. 03-02-05-SC)",
+    "titleFil": "Legal Guardianship ng Menor de Edad sa Korte",
+    "filingOfficeEn": "Regional Trial Court (Family Court) where the minor resides. Indigent applicants should visit the Public Attorney's Office (PAO) first.",
+    "filingOfficeFil": "Regional Trial Court (Family Court) kung saan nakatira ang bata. Magtungo muna sa PAO kung kwalipikado sa libreng abogado.",
+    "items": [
+      {
+        "id": "guard-child-psa",
+        "nameEn": "PSA Birth Certificate of the Minor Child",
+        "nameFil": "PSA Birth Certificate ng Menor de Edad",
+        "reasonEn": "Proves the child is below 18 years old and shows parentage.",
+        "reasonFil": "Nagpapatunay na wala pang 18 taong gulang ang bata.",
+        "whereToGet": "PSA",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "guard-death-or-absence",
+        "nameEn": "PSA Death Certificate of Parent(s) or Proof of Parental Absence/Incapacity",
+        "nameFil": "PSA Death Certificate ng Magulang o Patunay ng Pagkawala/Kawalan ng Kakayahan",
+        "reasonEn": "Establishes the legal ground why a court-appointed guardian is needed.",
+        "reasonFil": "Nagpapatunay kung bakit kailangang magtalaga ng legal guardian ang korte.",
+        "whereToGet": "PSA / Barangay / Medical Institution",
+        "verifyWithOffice": true
+      },
+      {
+        "id": "guard-relationship",
+        "nameEn": "Proof of Relationship (Birth/Marriage Certificates linking Guardian to Child)",
+        "nameFil": "Patunay ng Relasyon (Birth/Marriage Certificates ng Guardian at Magulang ng Bata)",
+        "reasonEn": "Shows priority qualification of grandparents, siblings, or relatives.",
+        "reasonFil": "Nagpapakita ng kaugnayan ng lolo, lola, o kamag-anak sa bata.",
+        "whereToGet": "PSA",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "guard-brgy-cert",
+        "nameEn": "Barangay Certificate of Residency and Actual Care",
+        "nameFil": "Barangay Certificate of Residency at Actual Care",
+        "reasonEn": "Confirms Family Court venue and that the minor resides with the petitioner.",
+        "reasonFil": "Nagpapatunay ng tirahan ng bata at kasalukuyang nag-aalaga.",
+        "whereToGet": "Barangay Hall",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "guard-indigency",
+        "nameEn": "Certificate of Indigency & Proof of Income (if applying for free PAO representation)",
+        "nameFil": "Certificate of Indigency at Patunay ng Kita (kung hihingi ng libreng abogado sa PAO)",
+        "reasonEn": "Used by PAO to assess qualification under the PAO Indigency Test.",
+        "reasonFil": "Ginagamit ng PAO upang suriin kung kwalipikado sa libreng serbisyo legal.",
+        "whereToGet": "Barangay Hall / LSWDO",
+        "verifyWithOffice": true
+      }
+    ]
+  },
+  {
+    "id": "birth-cert-correction",
+    "titleEn": "Birth Certificate Clerical Correction (RA 9048 / RA 10172)",
+    "titleFil": "Pagtatama ng Maling Impormasyon sa Birth Certificate (RA 9048 / RA 10172)",
+    "filingOfficeEn": "Local Civil Registry Office (LCRO) of the city/municipality where the birth was registered (or migrant petition at current residence LCRO).",
+    "filingOfficeFil": "Local Civil Registry Office (LCRO) kung saan ipinarehistro ang bata.",
+    "items": [
+      {
+        "id": "corr-psa-copy",
+        "nameEn": "Latest PSA Copy of the Birth Certificate Showing the Error",
+        "nameFil": "Pinakabagong Kopya ng PSA Birth Certificate na may Mali",
+        "reasonEn": "Primary civil registry record to be annotated.",
+        "reasonFil": "Pangunahing dokumento na lalagyan ng pagtatama.",
+        "whereToGet": "PSA",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "corr-lcro-copy",
+        "nameEn": "Certified True Copy of Local Civil Registry (Form 1A / Registry Book Page)",
+        "nameFil": "Certified True Copy mula sa Local Civil Registry Office (LCRO)",
+        "reasonEn": "Confirms how the entry was originally recorded at the municipal/city level.",
+        "reasonFil": "Nagpapakita ng orihinal na rekord sa munisipyo o lungsod.",
+        "whereToGet": "Local Civil Registry Office (LCRO)",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "corr-supporting-docs",
+        "nameEn": "At Least Two Public/Private Records Showing Correct Data (Baptismal, Earliest School Form 137, Medical/Immunization Record)",
+        "nameFil": "Hindi Bababa sa Dalawang Dokumentong may Tamang Detalye (Baptismal, Form 137, Immunization Record)",
+        "reasonEn": "Proves that the error was clerical and establishes the true entry.",
+        "reasonFil": "Nagpapatunay kung ano ang tamang impormasyon mula pagkabata.",
+        "whereToGet": "School / Parish / Health Center",
+        "verifyWithOffice": true
+      },
+      {
+        "id": "corr-clearances",
+        "nameEn": "NBI Clearance, Police Clearance, and Employer/No-Pending-Case Affidavit (for Change of First Name)",
+        "nameFil": "NBI Clearance at Police Clearance (kung magpapalit ng Unang Pangalan)",
+        "reasonEn": "Required under RA 9048 to ensure a first-name change is not used to evade legal obligations.",
+        "reasonFil": "Hinihingi ng RA 9048 upang matiyak na walang tinatakasang pananagutan.",
+        "whereToGet": "NBI / PNP / Notary Public or PAO",
+        "verifyWithOffice": true
+      }
+    ]
+  },
+  {
+    "id": "substitute-care-packet",
+    "titleEn": "Caregiver School, PhilHealth & Medical Authority Packet",
+    "titleFil": "Mga Dokumento para sa Paaralan, PhilHealth, at Ospital ng Tagapag-alaga",
+    "filingOfficeEn": "Present copies as needed to the child's School Registrar, PhilHealth Local Health Insurance Office, or LSWDO.",
+    "filingOfficeFil": "Ipakita sa School Registrar, PhilHealth, o LSWDO kung kinakailangan.",
+    "items": [
+      {
+        "id": "care-child-psa",
+        "nameEn": "PSA Birth Certificate of the Child",
+        "nameFil": "PSA Birth Certificate ng Bata",
+        "reasonEn": "Required for school enrollment, PhilHealth dependent verification, and government programs.",
+        "reasonFil": "Kinakailangan sa pag-aaral, PhilHealth, at mga programa ng gobyerno.",
+        "whereToGet": "PSA",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "care-brgy-custody",
+        "nameEn": "Barangay Certification of Actual Care and Custody",
+        "nameFil": "Barangay Certification ng Kasalukuyang Pag-aalaga sa Bata",
+        "reasonEn": "Confirms the child is living in your household.",
+        "reasonFil": "Nagpapatunay na ang bata ay nakatira at inaalagaan sa iyong tahanan.",
+        "whereToGet": "Barangay Hall",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "care-parent-spa",
+        "nameEn": "Notarized Special Power of Attorney (SPA) / Parental Authorization (if parents are alive and reachable)",
+        "nameFil": "Notarized Special Power of Attorney (SPA) mula sa Magulang (kung buhay at nakakausap)",
+        "reasonEn": "Empowers the grandparent or relative to sign school forms and consent to routine medical care.",
+        "reasonFil": "Nagbibigay-pahintulot sa lolo, lola, o kamag-anak na pumirma sa paaralan at ospital.",
+        "whereToGet": "Notary Public / PAO / Philippine Consulate (if OFW parent)",
+        "verifyWithOffice": true
+      },
+      {
+        "id": "care-lswdo-intake",
+        "nameEn": "LSWDO Intake / Social Worker Assessment (if parents are absent or abandoned the child)",
+        "nameFil": "LSWDO Intake / Social Worker Assessment (kung wala o nang-iwan ang magulang)",
+        "reasonEn": "Provides official social welfare documentation when parental signatures cannot be obtained.",
+        "reasonFil": "Nagbibigay ng opisyal na dokumento mula sa social worker kung hindi mahagilap ang magulang.",
+        "whereToGet": "Municipal / City Social Welfare and Development Office (LSWDO)",
+        "verifyWithOffice": true
+      }
+    ]
+  },
+  {
+    "id": "foundling-registration",
+    "titleEn": "Foundling / Abandoned Child Protection & Registration (RA 11767)",
+    "titleFil": "Pagpaparehistro at Proteksyon ng Foundling / Inabandonang Bata (RA 11767)",
+    "filingOfficeEn": "Municipal/City Social Welfare and Development Office (LSWDO), Regional RACCO/NACC, and Local Civil Registry Office (LCRO).",
+    "filingOfficeFil": "Municipal/City Social Welfare and Development Office (LSWDO), Regional RACCO/NACC, at Local Civil Registry Office (LCRO).",
+    "items": [
+      {
+        "id": "found-blotter",
+        "nameEn": "Barangay Blotter / BCPC Report and Police Report of Finding",
+        "nameFil": "Barangay Blotter / BCPC Report at Police Report",
+        "reasonEn": "Documents the date, place, and circumstances of how the child was found or left.",
+        "reasonFil": "Nagtatala ng petsa, lugar, at pangyayari kung paano natagpuan o iniwan ang bata.",
+        "whereToGet": "Barangay Hall / PNP Women and Children Protection Desk",
+        "verifyWithOffice": false
+      },
+      {
+        "id": "found-affidavit",
+        "nameEn": "Sworn Affidavit of the Finder / Custodian",
+        "nameFil": "Sinumpaang Salaysay (Affidavit) ng Nakakita o Nag-aalaga",
+        "reasonEn": "Required by LSWDO and Local Civil Registrar for Certificate of Foundling processing.",
+        "reasonFil": "Kinakailangan ng LSWDO at Local Civil Registrar para sa Certificate of Foundling.",
+        "whereToGet": "PAO / LSWDO Assistance",
+        "verifyWithOffice": true
+      },
+      {
+        "id": "found-scsr",
+        "nameEn": "Social Case Study Report (SCSR) prepared by a Licensed Social Worker",
+        "nameFil": "Social Case Study Report (SCSR) mula sa Lisensyadong Social Worker",
+        "reasonEn": "Core assessment needed for child protection, foster care licensing, or NACC registration.",
+        "reasonFil": "Pangunahing ulat para sa proteksyon ng bata, foster care, o rehistro sa NACC.",
+        "whereToGet": "LSWDO / NACC RACCO",
+        "verifyWithOffice": true
+      }
+    ]
+  }
+]

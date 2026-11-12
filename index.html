@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-text-size="normal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="AlagaLegal PH – Free, offline-capable Philippine family care and legal guide for grandparents, relatives, and guardians raising children." />
+  <meta name="theme-color" id="meta-theme-color" content="#0F2942" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="AlagaLegal PH" />
+  <title>AlagaLegal PH – Family Care &amp; Legal Guide</title>
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./icons/favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="./icons/favicon-16x16.png" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link" data-i18n="skipToContent">Skip to main content</a>
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Connectivity & Service Worker Update Banners -->
+  <div id="offline-banner" class="status-banner status-banner--offline" role="status" hidden>
+    <span data-i18n="offlineBanner">You are offline. Saved checklists, notes, and cached legal guides remain available on this device.</span>
+  </div>
+
+  <div id="update-banner" class="status-banner status-banner--update" role="status" hidden>
+    <span data-i18n="updateBanner">A newer version of AlagaLegal PH is ready.</span>
+    <button type="button" id="btn-reload-update" class="btn btn--small btn--primary" data-i18n="updateAction">Refresh App</button>
+  </div>
+
+  <!-- Top Application Header -->
+  <header class="app-header">
+    <div class="container header-inner">
+      <a href="#home" class="brand" data-route="home" aria-label="AlagaLegal PH Home">
+        <img src="./favicon.svg" alt="" width="40" height="40" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">AlagaLegal PH</span>
+          <span class="brand-tagline" data-i18n="tagline">Family Care &amp; Legal Guide</span>
+        </div>
+      </a>
+
+      <div class="header-controls">
+        <button type="button" id="btn-install-app" class="btn btn--small btn--gold no-print" hidden data-i18n="installApp">Install App</button>
+        <button type="button" id="btn-lang-toggle" class="icon-btn lang-btn" aria-label="Switch language between English and Filipino">
+          <span id="lang-label">EN → FIL</span>
+        </button>
+        <button type="button" id="btn-text-size" class="icon-btn" aria-label="Toggle larger reading text">A+</button>
+        <button type="button" id="btn-theme-toggle" class="icon-btn" aria-label="Toggle light and dark theme">
+          <span id="theme-icon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" aria-label="Primary Navigation">
+      <div class="container desktop-nav-inner">
+        <a href="#home" class="nav-link active" data-route="home" data-i18n="navHome">Home</a>
+        <a href="#situations" class="nav-link" data-route="situations" data-i18n="navSituations">Situations</a>
+        <a href="#guides" class="nav-link" data-route="guides" data-i18n="navGuides">Legal Guides</a>
+        <a href="#checklist" class="nav-link" data-route="checklist" data-i18n="navChecklist">Checklist</a>
+        <a href="#directory" class="nav-link" data-route="directory" data-i18n="navDirectory">Legal Aid</a>
+        <a href="#costs" class="nav-link" data-route="costs" data-i18n="navCosts">Costs &amp; Steps</a>
+        <a href="#faq" class="nav-link" data-route="faq" data-i18n="navFaq">FAQ</a>
+        <a href="#plan" class="nav-link" data-route="plan" data-i18n="navPlan">My Plan</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="container main-container" tabindex="-1">
+    <!-- Persistent Legal Disclaimer -->
+    <aside class="disclaimer-bar" aria-label="Legal Disclaimer">
+      <strong data-i18n="disclaimerLead">Public Legal Information Only:</strong>
+      <span data-i18n="disclaimerShort">AlagaLegal PH provides general Philippine legal education, not formal legal representation. Never falsify a birth certificate or hide a child's biological identity. Consult PAO, NACC, LSWDO, or a licensed lawyer for your specific case.</span>
+    </aside>
+
+    <!-- 1. HOME DASHBOARD VIEW -->
+    <section id="view-home" class="app-view active" aria-labelledby="home-hero-heading">
+      <div class="hero-card">
+        <span class="hero-badge" data-i18n="heroBadge">Free Public-Service Guide • Bataan Pilot &amp; Nationwide PH</span>
+        <h1 id="home-hero-heading" data-i18n="heroTitle">Caring for a child who is not legally yours? Understand your lawful options.</h1>
+        <blockquote class="hero-mission" data-i18n="heroMission">“Nobody should have to break the law simply because they cannot afford to understand it.”</blockquote>
+        <p class="hero-desc" data-i18n="heroDesc">Built for Filipino grandparents, aunts, uncles, and guardians. Learn lawful adoption, guardianship, and civil registry steps in simple English and Filipino—even offline.</p>
+
+        <div class="hero-actions">
+          <a href="#situations" class="btn btn--primary" data-route="situations" data-i18n="ctaStartSituation">Start with My Family Situation</a>
+          <a href="#checklist" class="btn btn--secondary-light" data-route="checklist" data-i18n="ctaOpenChecklist">Open Document Checklist</a>
+          <button type="button" id="btn-ios-install-help" class="btn btn--outline-light" data-i18n="ctaHowToInstall">How to Save on Phone</button>
+        </div>
+      </div>
+
+      <!-- User Local Progress Snapshot -->
+      <div class="stats-grid" aria-label="Your Saved Progress">
+        <div class="stat-card">
+          <span class="stat-label" data-i18n="statSituationLabel">Selected Situation</span>
+          <strong class="stat-value" id="home-selected-situation">Not selected yet</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label" data-i18n="statChecklistLabel">Active Checklist Progress</span>
+          <strong class="stat-value" id="home-checklist-progress">0% (0/0)</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label" data-i18n="statPlanLabel">Saved Action Plan Steps</span>
+          <strong class="stat-value" id="home-plan-count">0 Tasks Saved</strong>
+        </div>
+      </div>
+
+      <h2 class="section-heading" data-i18n="dashboardModulesHeading">Explore AlagaLegal PH Tools</h2>
+      <div class="modules-grid">
+        <a href="#situations" class="module-card" data-route="situations">
+          <span class="module-tag" data-i18n="tagStep1">Step 1 • Start Here</span>
+          <h3 data-i18n="cardSituationsTitle">Family Situation Guide</h3>
+          <p data-i18n="cardSituationsDesc">Select who you are caring for (grandchild, niece/nephew, abandoned child) to see lawful options and warnings.</p>
+        </a>
+
+        <a href="#guides" class="module-card" data-route="guides">
+          <span class="module-tag" data-i18n="tagStep2">Step 2 • Learn Laws</span>
+          <h3 data-i18n="cardGuidesTitle">Step-by-Step Legal Guides</h3>
+          <p data-i18n="cardGuidesDesc">Plain-language guides on RA 11642 Administrative Adoption, Guardianship, Substitute Parental Authority, and PSA records.</p>
+        </a>
+
+        <a href="#checklist" class="module-card" data-route="checklist">
+          <span class="module-tag" data-i18n="tagStep3">Step 3 • Prepare</span>
+          <h3 data-i18n="cardChecklistTitle">Document Checklist</h3>
+          <p data-i18n="cardChecklistDesc">Interactive checklists saved privately on your phone so you avoid incomplete requirements and wasted trips.</p>
+        </a>
+
+        <a href="#directory" class="module-card" data-route="directory">
+          <span class="module-tag" data-i18n="tagStep4">Step 4 • Get Help</span>
+          <h3 data-i18n="cardDirectoryTitle">Legal Aid &amp; Agency Directory</h3>
+          <p data-i18n="cardDirectoryDesc">Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan pilot partners.</p>
+        </a>
+
+        <a href="#costs" class="module-card" data-route="costs">
+          <span class="module-tag" data-i18n="tagStep5">Step 5 • Plan Budget</span>
+          <h3 data-i18n="cardCostsTitle">Cost &amp; Process Guide</h3>
+          <p data-i18n="cardCostsDesc">Understand which government services are free, where expenses may arise, and how to qualify for indigent support.</p>
+        </a>
+
+        <a href="#faq" class="module-card" data-route="faq">
+          <span class="module-tag" data-i18n="tagStep6">Answers</span>
+          <h3 data-i18n="cardFaqTitle">Frequently Asked Questions</h3>
+          <p data-i18n="cardFaqDesc">Practical answers about separated parents, missing parents, grandparent adoption, and birth certificate errors.</p>
+        </a>
+
+        <a href="#plan" class="module-card module-card--highlight" data-route="plan">
+          <span class="module-tag" data-i18n="tagPrivate">Stored Locally on Device</span>
+          <h3 data-i18n="cardPlanTitle">My Personal Action Plan</h3>
+          <p data-i18n="cardPlanDesc">Save your chosen situation, track next steps, and keep private caregiver notes offline without creating an account.</p>
+        </a>
+      </div>
+
+      <div class="safety-callout">
+        <h2 data-i18n="safetyTitle">Important Child Protection Reminder</h2>
+        <p data-i18n="safetyBody">Registering a child under your own name as if you gave birth to them ("simulated birth") is illegal and can harm the child's future inheritance, passport, and identity rights. Lawful paths such as Relative Adoption (RA 11642), Legal Guardianship, or Substitute Parental Authority protect both you and the child.</p>
+      </div>
+    </section>
+
+    <!-- 2. FAMILY SITUATION GUIDE VIEW -->
+    <section id="view-situations" class="app-view" hidden aria-labelledby="situations-heading">
+      <div class="view-header">
+        <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+        <h1 id="situations-heading" data-i18n="situationsHeading">Family Situation Guide</h1>
+        <p class="view-subtitle" data-i18n="situationsSubtitle">Select the statement that best describes your current caregiving role. We will show general lawful options, key protections, and when to seek a lawyer or social worker.</p>
+      </div>
+
+      <div id="situations-grid" class="situation-selector-grid" role="list"></div>
+      <div id="situation-detail-panel" class="detail-panel" hidden></div>
+    </section>
+
+    <!-- 3. STEP-BY-STEP LEGAL GUIDES VIEW -->
+    <section id="view-guides" class="app-view" hidden aria-labelledby="guides-heading">
+      <div class="view-header">
+        <div class="view-header-row">
+          <div>
+            <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+            <h1 id="guides-heading" data-i18n="guidesHeading">Step-by-Step Legal Guides</h1>
+            <p class="view-subtitle" data-i18n="guidesSubtitle">Clear explanations in English and Filipino citing official Philippine statutes and agencies.</p>
+          </div>
+          <button type="button" class="btn btn--small btn--secondary no-print" onclick="window.print()" data-i18n="btnPrint">Print Guide</button>
+        </div>
+      </div>
+
+      <div class="filter-bar no-print">
+        <input type="search" id="guide-search" class="form-input" placeholder="Search RA 11642, adoption, guardianship, PSA, birth certificate..." aria-label="Search legal guides" />
+        <div id="guide-category-filters" class="chip-group"></div>
+      </div>
+
+      <div id="guides-list"></div>
+    </section>
+
+    <!-- 4. DOCUMENT CHECKLIST VIEW -->
+    <section id="view-checklist" class="app-view" hidden aria-labelledby="checklist-heading">
+      <div class="view-header">
+        <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+        <h1 id="checklist-heading" data-i18n="checklistHeading">Document Checklist</h1>
+        <p class="view-subtitle" data-i18n="checklistSubtitle">Choose a legal procedure below. Your checked items are saved automatically on this device via LocalStorage.</p>
+      </div>
+
+      <div class="card">
+        <div class="form-group">
+          <label for="checklist-procedure-select" class="form-label" data-i18n="selectProcedureLabel">Select Procedure / Piliin ang Proseso:</label>
+          <select id="checklist-procedure-select" class="form-select"></select>
+        </div>
+
+        <div class="progress-wrapper">
+          <div class="progress-meta">
+            <span id="checklist-progress-text">0 of 0 documents ready (0%)</span>
+            <button type="button" id="btn-reset-checklist" class="btn btn--small btn--danger-outline" data-i18n="btnResetChecklist">Reset Checklist</button>
+          </div>
+          <div id="checklist-progressbar" class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="checklist-progress-fill" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="checklist-meta-box" class="info-callout"></div>
+      <div id="checklist-items-container"></div>
+    </section>
+
+    <!-- 5. LEGAL AID DIRECTORY VIEW -->
+    <section id="view-directory" class="app-view" hidden aria-labelledby="directory-heading">
+      <div class="view-header">
+        <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+        <h1 id="directory-heading" data-i18n="directoryHeading">Legal Aid &amp; Government Directory</h1>
+        <p class="view-subtitle" data-i18n="directorySubtitle">Verified government agencies and legal aid providers. Always confirm local branch hours and indigent eligibility directly with the office.</p>
+      </div>
+
+      <div class="filter-bar">
+        <input type="search" id="directory-search" class="form-input" placeholder="Search PAO, NACC, DSWD, Bataan, Civil Registry, PSA..." aria-label="Search legal aid directory" />
+        <div id="directory-type-filters" class="chip-group"></div>
+      </div>
+
+      <div id="directory-list" class="directory-grid"></div>
+    </section>
+
+    <!-- 6. COST & PROCESS GUIDE VIEW -->
+    <section id="view-costs" class="app-view" hidden aria-labelledby="costs-heading">
+      <div class="view-header">
+        <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+        <h1 id="costs-heading" data-i18n="costsHeading">Cost &amp; Process Guide</h1>
+        <p class="view-subtitle" data-i18n="costsSubtitle">Transparent overview of process stages, free public services, and potential documentary expenses. Exact fees vary by municipality, court, or third-party provider and must be verified locally.</p>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="costsFreeHeading">Where Free Government Assistance Is Available</h2>
+        <ul class="bullet-list">
+          <li><strong>Public Attorney's Office (PAO):</strong> Free legal consultation, affidavit drafting/notarization, and court representation for qualified indigent caregivers (subject to PAO Indigency &amp; Merit Tests).</li>
+          <li><strong>Local Social Welfare and Development Office (LSWDO / MSWDO / CSWDO):</strong> Free social worker intake, Home Study / Child Case Study coordination, and referrals to NACC/RACCO.</li>
+          <li><strong>National Authority for Child Care (NACC / RACCO):</strong> Administrative adoption processing under RA 11642 eliminates expensive court litigation fees; confirm any minimal administrative/documentary requirements directly with RACCO.</li>
+          <li><strong>Integrated Bar of the Philippines (IBP) Chapters:</strong> Free legal aid clinics for qualified low-income families.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="costsTableHeading">Process Stages &amp; Possible Expense Breakdown</h2>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Stage / Procedure</th>
+                <th>Agency / Office</th>
+                <th>Typical Cost Nature</th>
+                <th>Verification Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Civil Registry Copies</strong><br />(Birth, Marriage, Death, CENOMAR)</td>
+                <td>PSA CRS Outlet / Local Civil Registry Office (LCRO)</td>
+                <td>Standard government documentary stamp / copy fees</td>
+                <td>Check current rates on <strong>psa.gov.ph</strong> or your City/Municipal Hall.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Barangay &amp; Police Clearances</strong><br />(Indigency, Custody Cert, NBI/PNP)</td>
+                <td>Barangay Hall, PNP Station, NBI</td>
+                <td>Often free for Barangay Certificate of Indigency; standard clearance fees for NBI/PNP</td>
+                <td>Request a <em>Barangay Certificate of Indigency</em> if applying for PAO or fee exemptions.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Social Worker Assessment</strong><br />(Home Study &amp; Case Study)</td>
+                <td>LSWDO &amp; NACC / RACCO</td>
+                <td><strong>Free public social work service</strong></td>
+                <td>Medical/psychological evaluations requested during assessment may incur hospital/clinic fees.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Administrative Adoption (RA 11642)</strong></td>
+                <td>NACC / RACCO</td>
+                <td>No court filing fees; personal document &amp; newspaper publication (if required) costs may apply</td>
+                <td>Verify exact publication/document rules with your Regional RACCO.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Birth Certificate Correction</strong><br />(RA 9048 / RA 10172)</td>
+                <td>Local Civil Registry Office (LCRO)</td>
+                <td>Statutory LCRO filing fee + local newspaper publication (for change of first name/sex)</td>
+                <td>Indigent petitioners may inquire at LCRO regarding statutory fee exemptions.</td>
+              </tr>
+              <tr>
+                <td><strong>6. Judicial Guardianship / Rule 108</strong></td>
+                <td>Regional Trial Court (Family Court)</td>
+                <td>Free legal representation if PAO-qualified; court docket/publication fees apply unless exempt as indigent litigant</td>
+                <td>Ask PAO about <em>Pauper Litigant</em> docket fee exemption under the Rules of Court.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ VIEW -->
+    <section id="view-faq" class="app-view" hidden aria-labelledby="faq-heading">
+      <div class="view-header">
+        <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+        <h1 id="faq-heading" data-i18n="faqHeading">Frequently Asked Questions</h1>
+        <p class="view-subtitle" data-i18n="faqSubtitle">Practical, responsible answers grounded in Philippine family law.</p>
+      </div>
+
+      <div class="filter-bar">
+        <input type="search" id="faq-search" class="form-input" placeholder="Search questions about grandparents, separated parents, birth certificates..." aria-label="Search frequently asked questions" />
+      </div>
+
+      <div id="faq-list"></div>
+    </section>
+
+    <!-- 8. PERSONAL ACTION PLAN VIEW -->
+    <section id="view-plan" class="app-view" hidden aria-labelledby="plan-heading">
+      <div class="view-header">
+        <button type="button" class="btn btn--small btn--secondary btn-back" data-back data-i18n="btnBack">← Back</button>
+        <h1 id="plan-heading" data-i18n="planHeading">My Personal Action Plan</h1>
+        <p class="view-subtitle" data-i18n="planSubtitle">Everything here is stored privately in your browser's LocalStorage on this device. Nothing is sent to any server.</p>
+      </div>
+
+      <div class="privacy-badge-box">
+        <strong data-i18n="privacyTitle">Child Privacy Protection:</strong>
+        <span data-i18n="privacyNote">Avoid typing sensitive personal numbers (such as full birth certificate registry numbers or bank details) if you share this phone with others.</span>
+      </div>
+
+      <div class="plan-grid">
+        <div class="card">
+          <h2 data-i18n="planSituationHeading">1. My Family Situation</h2>
+          <div class="form-group">
+            <label for="plan-situation-select" class="form-label" data-i18n="planSelectSituationLabel">Current Caregiving Situation:</label>
+            <select id="plan-situation-select" class="form-select"></select>
+          </div>
+          <div id="plan-situation-summary" class="info-callout"></div>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="planTasksHeading">2. My Next Steps &amp; Tasks</h2>
+          <form id="plan-task-form" class="inline-form">
+            <input type="text" id="plan-task-input" class="form-input" placeholder="e.g., Visit Municipal LSWDO on Monday morning" aria-label="Add a personal action step" required />
+            <button type="submit" class="btn btn--primary" data-i18n="btnAddTask">Add Step</button>
+          </form>
+          <p id="plan-tasks-empty" class="empty-state" data-i18n="planEmptyTasks">No action steps saved yet. Add a task above or click "Add to My Plan" from any situation or checklist.</p>
+          <ul id="plan-tasks-list" class="task-list"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="planNotesHeading">3. Private Caregiver Notes (Local Only)</h2>
+        <div class="form-group">
+          <label for="plan-notes-textarea" class="form-label" data-i18n="planNotesLabel">Write questions to ask PAO, LSWDO, or the Local Civil Registrar:</label>
+          <textarea id="plan-notes-textarea" class="form-textarea" rows="5" placeholder="Write your questions or appointment reminders here..."></textarea>
+        </div>
+        <div class="card-footer-actions">
+          <span id="notes-saved-status" class="muted-text">Saved locally in your browser.</span>
+          <button type="button" id="btn-clear-local-data" class="btn btn--small btn--danger-outline" data-i18n="btnClearAllData">Clear All Local Data</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="bottom-nav" aria-label="Mobile Bottom Navigation">
+    <a href="#home" class="bottom-nav-item active" data-route="home">
+      <span class="bottom-nav-icon" aria-hidden="true">⌂</span>
+      <span data-i18n="navHome">Home</span>
+    </a>
+    <a href="#situations" class="bottom-nav-item" data-route="situations">
+      <span class="bottom-nav-icon" aria-hidden="true">♥</span>
+      <span data-i18n="navSituations">Situations</span>
+    </a>
+    <a href="#guides" class="bottom-nav-item" data-route="guides">
+      <span class="bottom-nav-icon" aria-hidden="true">§</span>
+      <span data-i18n="navGuides">Guides</span>
+    </a>
+    <a href="#checklist" class="bottom-nav-item" data-route="checklist">
+      <span class="bottom-nav-icon" aria-hidden="true">☑</span>
+      <span data-i18n="navChecklist">Checklist</span>
+    </a>
+    <a href="#directory" class="bottom-nav-item" data-route="directory">
+      <span class="bottom-nav-icon" aria-hidden="true">☎</span>
+      <span data-i18n="navDirectory">Legal Aid</span>
+    </a>
+    <a href="#plan" class="bottom-nav-item" data-route="plan">
+      <span class="bottom-nav-icon" aria-hidden="true">✎</span>
+      <span data-i18n="navPlan">My Plan</span>
+    </a>
+  </nav>
+
+  <!-- Manual / iOS PWA Installation Guide Modal -->
+  <dialog id="install-modal" class="modal" aria-labelledby="install-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="install-modal-title" data-i18n="installModalTitle">Install AlagaLegal PH on Your Device</h2>
+        <button type="button" id="btn-close-install-modal" class="icon-btn" aria-label="Close installation instructions">✕</button>
+      </div>
+      <p data-i18n="installModalIntro">Install this app for quick offline access without using app store space:</p>
+      <ul class="bullet-list">
+        <li><strong>Android (Chrome / Edge):</strong> Tap the browser menu (<strong>⋮</strong>) at the top right, then select <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li>
+        <li><strong>iPhone / iPad (Safari):</strong> Tap the <strong>Share</strong> button at the bottom of Safari, scroll down, and tap <strong>Add to Home Screen</strong>.</li>
+        <li><strong>Desktop (Chrome / Edge):</strong> Click the <strong>Install</strong> icon inside the right side of the address bar.</li>
+      </ul>
+    </div>
+  </dialog>
+
+  <footer class="app-footer">
+    <div class="container">
+      <p><strong>AlagaLegal PH</strong> – Free &amp; Open-Source Public Legal Literacy Initiative (Bataan Pilot &amp; Nationwide Philippines).</p>
+      <p class="muted-text">Always verify legal procedures with the National Authority for Child Care (NACC), Public Attorney's Office (PAO), Local Social Welfare Office (LSWDO), or a licensed Philippine lawyer.</p>
+    </div>
+  </footer>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/accessibility.js"></script>
+  <script src="./js/navigation.js"></script>
+  <script src="./js/legal-guides.js"></script>
+  <script src="./js/checklist.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

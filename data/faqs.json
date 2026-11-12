@@ -1,0 +1,56 @@
+[
+  {
+    "id": "faq-grandparents-adopt",
+    "questionEn": "Can grandparents legally adopt their grandchildren in the Philippines?",
+    "questionFil": "Maaari bang legal na ampunin ng lolo at lola ang kanilang apo sa Pilipinas?",
+    "answerEn": "Yes. Under Republic Act No. 11642 (Domestic Administrative Adoption and Alternative Child Care Act), relatives within the fourth civil degree of consanguinity or affinity—which includes grandparents, aunts, and uncles—may file for Relative Adoption through the National Authority for Child Care (NACC) and its Regional Alternative Child Care Office (RACCO), provided statutory age, fitness, and consent requirements are met.",
+    "answerFil": "Oo. Sa ilalim ng Republic Act No. 11642, ang mga kamag-anak hanggang fourth degree of consanguinity o affinity—kasama ang lolo, lola, tiyahin, at tiyuhin—ay maaaring mag-aplay ng Relative Adoption sa NACC/RACCO kung matutugunan ang mga kinakailangan sa edad, kakayahan, at pahintulot.",
+    "reference": "RA 11642, Sections 4 & 21 (NACC)",
+    "lastVerified": "2026-11-12"
+  },
+  {
+    "id": "faq-separated-parents",
+    "questionEn": "What if the child's biological parents are separated?",
+    "questionFil": "Paano kung hiwalay ang tunay na magulang ng bata?",
+    "answerEn": "Separation alone does not automatically remove parental authority. Under the Family Code (Article 213), a child under seven years of age generally remains under the mother's custody unless a court finds compelling reasons otherwise. If both parents are alive and reachable, written consent from the parent(s) exercising parental authority is normally required for adoption or long-term delegation of care.",
+    "answerFil": "Ang paghihiwalay ng magulang ay hindi awtomatikong nag-aalis ng kanilang parental authority. Sa ilalim ng Family Code (Art. 213), ang batang wala pang pitong taong gulang ay karaniwang nasa kustodiya ng ina maliban kung may mabigat na dahilan ang korte. Kailangan pa rin ang legal na pahintulot ng magulang.",
+    "reference": "Family Code (E.O. No. 209), Art. 213; RA 11642",
+    "lastVerified": "2026-11-12"
+  },
+  {
+    "id": "faq-no-contact-parents",
+    "questionEn": "What if the child has had no contact with their biological parents for a long time?",
+    "questionFil": "Paano kung matagal nang walang komunikasyon ang tunay na magulang sa bata?",
+    "answerEn": "If biological parents have abandoned the child or failed to provide parental care and support for a continuous period defined by law (generally at least three continuous months under RA 11642 for administrative declaration of abandonment), you should report the situation to your LSWDO and NACC/RACCO so a social worker can evaluate the child for a Certificate Declaring a Child Legally Available for Adoption (CDCLAA) or guardianship.",
+    "answerFil": "Kung inabandona na ng magulang ang bata nang tuloy-tuloy (karaniwang hindi bababa sa tatlong buwan sa ilalim ng RA 11642), makipag-ugnayan sa LSWDO at NACC/RACCO upang masuri ng social worker para sa Certificate Declaring a Child Legally Available for Adoption (CDCLAA) o guardianship.",
+    "reference": "RA 11642 (CDCLAA & Abandonment Rules)",
+    "lastVerified": "2026-11-12"
+  },
+  {
+    "id": "faq-relative-guardian",
+    "questionEn": "Can a relative become a legal guardian instead of adopting?",
+    "questionFil": "Maaari bang maging legal guardian na lamang ang kamag-anak sa halip na mag-ampon?",
+    "answerEn": "Yes. If you do not intend to permanently sever the child's legal ties with their biological parents—or if you need court authority to manage the child's welfare, education, or survivor benefits—you may petition the Family Court for Legal Guardianship under A.M. No. 03-02-05-SC. Guardianship lasts until the child turns 18 and does not alter the child's birth certificate.",
+    "answerFil": "Oo. Kung hindi nais baguhin ang birth certificate o permanenteng putulin ang legal na ugnayan sa tunay na magulang, maaaring maghain ng petisyon sa Family Court para sa Legal Guardianship sa ilalim ng A.M. No. 03-02-05-SC. Nagtatapos ito pagsapit ng bata sa edad na 18.",
+    "reference": "A.M. No. 03-02-05-SC (Rule on Guardianship of Minors)",
+    "lastVerified": "2026-11-12"
+  },
+  {
+    "id": "faq-wrong-birth-cert",
+    "questionEn": "What if the birth certificate contains wrong information or simulated parents?",
+    "questionFil": "Paano kung may maling impormasyon o simulated parents sa birth certificate?",
+    "answerEn": "For clerical spelling or date errors, file an administrative petition under RA 9048 or RA 10172 at your Local Civil Registry Office (LCRO). However, if a child was previously registered under non-biological parents ('simulated birth'), do not alter documents yourself—consult NACC/RACCO or PAO immediately to learn lawful rectification or adoption pathways.",
+    "answerFil": "Para sa maling baybay o petsa, maghain ng petisyon sa ilalim ng RA 9048 o RA 10172 sa LCRO. Kung ang bata ay naiparehistro noon sa hindi tunay na magulang ('simulated birth'), huwag baguhin nang mag-isa—kumonsulta agad sa NACC/RACCO o PAO.",
+    "reference": "RA 9048, RA 10172 & NACC Guidelines",
+    "lastVerified": "2026-11-12"
+  },
+  {
+    "id": "faq-free-legal-aid",
+    "questionEn": "Where can low-income families get free legal assistance?",
+    "questionFil": "Saan maaaring humingi ng libreng tulong legal ang mga pamilyang walang sapat na kakayahan?",
+    "answerEn": "Qualified indigent families can seek free legal advice, affidavit notarization, and representation from the Public Attorney's Office (PAO) or the Integrated Bar of the Philippines (IBP) Legal Aid chapters. For social worker assessments and adoption/foster care guidance, visit your Municipal/City Social Welfare and Development Office (LSWDO) for free.",
+    "answerFil": "Maaaring lumapit ang mga kwalipikadong pamilya sa Public Attorney's Office (PAO) o sa Integrated Bar of the Philippines (IBP) Legal Aid para sa libreng payo at representasyon. Libre rin ang pagtatasa ng social worker sa inyong Municipal o City Social Welfare and Development Office (LSWDO).",
+    "reference": "RA 9406 (PAO Law) & LSWDO Mandate",
+    "lastVerified": "2026-11-12"
+  }
+]

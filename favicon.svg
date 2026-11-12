@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AlagaLegal PH Emblem">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2942" />
+      <stop offset="100%" stop-color="#0D7377" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="26" fill="url(#bgGrad)" />
+  <path d="M64 18 L102 32 V62 C102 87 85 104 64 112 C43 104 26 87 26 62 V32 Z" fill="none" stroke="#D99B26" stroke-width="6" stroke-linejoin="round" />
+  <circle cx="53" cy="52" r="9" fill="#FFFFFF" />
+  <path d="M38 82 C38 69 68 69 68 82 Z" fill="#FFFFFF" />
+  <circle cx="77" cy="58" r="7" fill="#F6C85F" />
+  <path d="M65 82 C65 72 89 72 89 82 Z" fill="#F6C85F" />
+</svg>

@@ -1,36 +1,30 @@
 /* AlagaLegal PH – 2026 Civic Design System (Trust, Compassion & Accessibility) */
 :root {
-  /* Core Civic Brand Palette */
   --color-navy: #0F2942;
   --color-navy-dark: #0A1C2E;
   --color-teal: #0D7377;
   --color-teal-dark: #095356;
   --color-gold: #C68B2C;
 
-  /* Warm White & Soft Light Gray Surfaces */
   --bg-page: #FAF9F6;
   --bg-surface: #FFFFFF;
   --bg-surface-alt: #F1F5F9;
   --bg-callout: #EAF6F6;
   --bg-warning: #FFFBEB;
 
-  /* Accessible High-Contrast Typography */
   --text-primary: #0F2942;
   --text-secondary: #3B526B;
   --text-accent: #095356;
 
-  /* Borders & Semantic Feedback */
   --border-color: #E2E8F0;
   --border-strong: #94A3B8;
   --success-color: #15803D;
   --danger-color: #B91C1C;
 
-  /* Consistent Spacing & Radii */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
 
-  /* Restrained Architectural Elevation */
   --shadow-sm: 0 1px 2px rgba(15, 41, 66, 0.05), 0 1px 3px rgba(15, 41, 66, 0.06);
   --shadow-md: 0 8px 24px rgba(15, 41, 66, 0.08);
   --shadow-lg: 0 14px 34px rgba(15, 41, 66, 0.11);
@@ -117,7 +111,7 @@ body {
   background: var(--bg-page);
   color: var(--text-primary);
   line-height: 1.65;
-  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px));
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -200,11 +194,11 @@ h1, h2, h3, .brand-title {
   color: #FFFFFF;
 }
 
-/* Frosted Glass Civic Header */
+/* Frosted Glassmorphism Header */
 .app-header {
-  background: rgba(15, 41, 66, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(15, 41, 66, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #FFFFFF;
   border-bottom: 2px solid var(--color-gold);
   position: sticky;
@@ -305,12 +299,12 @@ h1, h2, h3, .brand-title {
 }
 
 .icon-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 .desktop-nav {
   display: none;
-  background: rgba(10, 28, 46, 0.88);
+  background: rgba(10, 28, 46, 0.86);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -378,7 +372,7 @@ h1, h2, h3, .brand-title {
   margin-top: 2px;
 }
 
-/* Buttons with Tactile Spring Press States */
+/* Buttons with Tactile Spring Micro-Interactions */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -459,7 +453,7 @@ h1, h2, h3, .brand-title {
   margin-bottom: 14px;
 }
 
-/* Redesigned Split Civic Hero Section */
+/* Split Civic Hero Section */
 .hero-shell {
   display: grid;
   grid-template-columns: 1fr;
@@ -965,7 +959,7 @@ h1, h2, h3, .brand-title {
 }
 
 .chip:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 .chip.active {
@@ -1289,19 +1283,25 @@ h1, h2, h3, .brand-title {
   font-style: italic;
 }
 
-/* Mobile Bottom Navigation */
+/* Mobile Thumb-Friendly Bottom Navigation */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 120;
-  background: var(--bg-surface);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--border-color);
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-bottom: max(6px, env(safe-area-inset-bottom, 0px));
   box-shadow: 0 -2px 12px rgba(15, 41, 66, 0.08);
+}
+
+[data-theme="dark"] .bottom-nav {
+  background: rgba(19, 34, 50, 0.92);
 }
 
 @media (min-width: 960px) {
@@ -1322,11 +1322,11 @@ h1, h2, h3, .brand-title {
   font-weight: 700;
   gap: 3px;
   padding: 4px 2px;
-  transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease;
 }
 
 .bottom-nav-item:active {
-  transform: scale(0.92);
+  transform: scale(0.94);
 }
 
 .bottom-nav-item.active {

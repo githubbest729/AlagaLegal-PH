@@ -1,4 +1,4 @@
-/* AlagaLegal PH – Accessible Civic-Service Stylesheet */
+/* AlagaLegal PH – 2026 Accessible Civic-Service Stylesheet */
 :root {
   --color-navy: #0F2942;
   --color-navy-dark: #091B2C;
@@ -60,6 +60,19 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+}
+
+/* View Transitions API (Cross-Document & Intra-Document SPA Cross-Fade) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.22s;
+    animation-timing-function: ease-out;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -155,15 +168,18 @@ body {
   color: #FFFFFF;
 }
 
-/* Header & Desktop Navigation */
+/* Header & 2026 Frosted Glassmorphism */
 .app-header {
-  background: var(--color-navy);
+  background: rgba(15, 41, 66, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #FFFFFF;
   border-bottom: 3px solid var(--color-gold);
   position: sticky;
   top: 0;
   z-index: 100;
   padding-top: env(safe-area-inset-top, 0px);
+  box-shadow: 0 4px 18px rgba(9, 27, 44, 0.16);
 }
 
 .header-inner {
@@ -223,15 +239,20 @@ body {
   font-weight: 700;
   font-size: 0.88rem;
   cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
 }
 
 .icon-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
 }
 
 .desktop-nav {
   display: none;
-  background: var(--color-navy-dark);
+  background: rgba(9, 27, 44, 0.85);
 }
 
 @media (min-width: 960px) {
@@ -256,11 +277,12 @@ body {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .nav-link:hover {
   color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav-link.active {
@@ -283,7 +305,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Buttons */
+/* Buttons with Tactile Spring Micro-Interactions */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -298,6 +320,16 @@ body {
   text-decoration: none;
   cursor: pointer;
   border: 2px solid transparent;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: scale(0.96);
 }
 
 .btn--small {
@@ -457,6 +489,17 @@ body {
   }
 }
 
+@keyframes cardRevealUp {
+  from {
+    opacity: 0.25;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .module-card {
   display: flex;
   flex-direction: column;
@@ -467,12 +510,27 @@ body {
   text-decoration: none;
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .module-card {
+      animation: cardRevealUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
 }
 
 .module-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--color-teal);
+  box-shadow: var(--shadow-md);
+}
+
+.module-card:active {
+  transform: scale(0.98);
 }
 
 .module-card--highlight {
@@ -549,7 +607,7 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* Situation Selector */
+/* Situation Selector with Inline SVG Icons */
 .situation-selector-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -571,20 +629,51 @@ body {
   padding: 16px 18px;
   color: var(--text-primary);
   cursor: pointer;
-  min-height: 64px;
+  min-height: 72px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
   font-family: inherit;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .situation-btn:hover {
+  transform: translateY(-2px);
   border-color: var(--color-teal);
+}
+
+.situation-btn:active {
+  transform: scale(0.98);
 }
 
 .situation-btn.selected {
   border-color: var(--color-teal);
   background: var(--bg-callout);
+}
+
+.situation-icon-wrap {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 10px;
+  background: var(--bg-surface-alt);
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.situation-btn.selected .situation-icon-wrap {
+  background: var(--color-teal);
+  color: #FFFFFF;
+}
+
+.situation-btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .situation-btn-title {
@@ -651,6 +740,11 @@ body {
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+}
+
+.chip:active {
+  transform: scale(0.95);
 }
 
 .chip.active {
@@ -946,6 +1040,12 @@ body {
   align-items: center;
   gap: 12px;
   margin-top: 12px;
+}
+
+.footer-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .bullet-list {

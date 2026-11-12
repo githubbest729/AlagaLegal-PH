@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlagaLegal PH – Browser PNG Icon Generator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; background: #F7F9FB; color: #102A43; }
+    button { background: #0D7377; color: #fff; border: none; padding: 14px 20px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+    .preview { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    canvas { border: 1px solid #D9E2EC; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <h1>AlagaLegal PH – PWA PNG Icon Generator</h1>
+  <p>Click the button below to download the required PNG icons, then upload them into your GitHub repository's <code>icons/</code> folder.</p>
+  <button id="btn-download">Download All PWA PNG Icons</button>
+  <div class="preview" id="preview"></div>
+
+  <script>
+    const SPECS = [
+      { name: 'icon-192.png', size: 192, maskable: false },
+      { name: 'icon-512.png', size: 512, maskable: false },
+      { name: 'icon-maskable-192.png', size: 192, maskable: true },
+      { name: 'icon-maskable-512.png', size: 512, maskable: true },
+      { name: 'apple-touch-icon.png', size: 180, maskable: false }
+    ];
+
+    function drawIcon(size, maskable) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      const grad = ctx.createLinearGradient(0, 0, size, size);
+      grad.addColorStop(0, '#0F2942');
+      grad.addColorStop(1, '#0D7377');
+
+      ctx.fillStyle = grad;
+      if (maskable) {
+        ctx.fillRect(0, 0, size, size);
+      } else {
+        const r = size * 0.2;
+        ctx.beginPath();
+        ctx.roundRect(0, 0, size, size, r);
+        ctx.fill();
+      }
+
+      const scale = maskable ? 0.72 : 0.88;
+      ctx.save();
+      ctx.translate(size * 0.5, size * 0.5);
+      ctx.scale((size / 128) * scale, (size / 128) * scale);
+      ctx.translate(-64, -64);
+
+      ctx.strokeStyle = '#D99B26';
+      ctx.lineWidth = 6;
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(64, 18);
+      ctx.lineTo(102, 32);
+      ctx.lineTo(102, 62);
+      ctx.curveTo(102, 87, 85, 104, 64, 112);
+      ctx.curveTo(43, 104, 26, 87, 26, 62);
+      ctx.lineTo(26, 32);
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.arc(53, 52, 9, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(38, 82);
+      ctx.bezierCurveTo(38, 69, 68, 69, 68, 82);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = '#F6C85F';
+      ctx.beginPath();
+      ctx.arc(77, 58, 7, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(65, 82);
+      ctx.bezierCurveTo(65, 72, 89, 72, 89, 82);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+      return canvas;
+    }
+
+    const preview = document.getElementById('preview');
+    const canvases = SPECS.map((s) => {
+      const c = drawIcon(s.size, s.maskable);
+      if (s.size <= 192) preview.appendChild(c);
+      return { ...s, canvas: c };
+    });
+
+    document.getElementById('btn-download').addEventListener('click', () => {
+      canvases.forEach((item, idx) => {
+        setTimeout(() => {
+          const link = document.createElement('a');
+          link.download = item.name;
+          link.href = item.canvas.toDataURL('image/png');
+          link.click();
+        }, idx * 250);
+      });
+    });
+  </script>
+</body>
+</html>

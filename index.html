@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="AlagaLegal PH – Free, offline-capable Philippine family care and legal guide for grandparents, relatives, and guardians raising children." />
-  <meta name="theme-color" id="meta-theme-color" content="#0F2942" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0F2942" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B1520" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -21,7 +22,7 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
 
-  <!-- Branded Deep-Navy iOS Launch Splash Screen (Zero-404 Inline SVG) -->
+  <!-- Branded Deep-Navy iOS Launch Splash Screen -->
   <link rel="apple-touch-startup-image" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1170 2532'%3E%3Crect width='1170' height='2532' fill='%230F2942'/%3E%3Cpath d='M585 960 L735 1015 V1135 C735 1235 668 1302 585 1335 C502 1302 435 1235 435 1135 V1015 Z' fill='none' stroke='%23D99B26' stroke-width='22' stroke-linejoin='round'/%3E%3Ccircle cx='540' cy='1095' r='34' fill='%23FFFFFF'/%3E%3Cpath d='M482 1212 C482 1162 598 1162 598 1212 Z' fill='%23FFFFFF'/%3E%3Ccircle cx='636' cy='1118' r='26' fill='%23F6C85F'/%3E%3Cpath d='M590 1212 C590 1174 682 1174 682 1212 Z' fill='%23F6C85F'/%3E%3Ctext x='585' y='1435' text-anchor='middle' fill='%23FFFFFF' font-family='sans-serif' font-size='56' font-weight='bold'%3EAlagaLegal PH%3C/text%3E%3Ctext x='585' y='1495' text-anchor='middle' fill='%23D9E2EC' font-family='sans-serif' font-size='32'%3EFamily Care %26amp; Legal Guide%3C/text%3E%3C/svg%3E" />
 
   <link rel="stylesheet" href="./css/styles.css" />
@@ -432,9 +433,12 @@
       <div class="card-footer-actions">
         <div>
           <p><strong>AlagaLegal PH</strong> – Free &amp; Open-Source Public Legal Literacy Initiative (Bataan Community Guide &amp; Nationwide Philippines).</p>
-          <p class="muted-text" data-i18n="verifiedNote"><strong>About "Verified" Dates:</strong> Dates marked "Verified" indicate when statutory citations were checked against official Philippine government sources (such as the Official Gazette, Supreme Court E-Library, NACC, and PSA). Local office procedures, intake schedules, and municipal fees must always be confirmed directly with the specific office.</p>
+          <p class="muted-text" data-i18n="verifiedNote">About "Verified" Dates: Dates marked "Verified" indicate when statutory citations were checked against official Philippine government sources (such as the Official Gazette, Supreme Court E-Library, NACC, and PSA). Local office procedures, intake schedules, and municipal fees must always be confirmed directly with the specific office.</p>
         </div>
-        <button type="button" id="btn-share-app-footer" class="btn btn--small btn--secondary no-print" data-i18n="btnShareAppFull">Share This App</button>
+        <div class="footer-action-group no-print">
+          <button type="button" id="btn-share-app-footer" class="btn btn--small btn--secondary" data-i18n="btnShareAppFull">Share This App</button>
+          <a href="mailto:feedback@alagalegal.ph?subject=Feedback%2FError%20on%20AlagaLegal%20PH" class="btn btn--small btn--secondary" data-i18n="btnFeedback">Send Feedback / Report an Error</a>
+        </div>
       </div>
     </div>
   </footer>

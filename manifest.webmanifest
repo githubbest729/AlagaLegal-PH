@@ -6,7 +6,7 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#F7F9FB",
+  "background_color": "#0F2942",
   "theme_color": "#0F2942",
   "lang": "en-PH",
   "categories": ["education", "government", "social"],
@@ -40,6 +40,60 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Family Situation Guide",
+      "short_name": "Situations",
+      "description": "Select who you are caring for to see lawful options",
+      "url": "./index.html#situations",
+      "icons": [
+        {
+          "src": "./favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Document Checklist",
+      "short_name": "Checklist",
+      "description": "Track required documents offline on your device",
+      "url": "./index.html#checklist",
+      "icons": [
+        {
+          "src": "./favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Legal Aid Directory",
+      "short_name": "Legal Aid",
+      "description": "Find PAO, NACC, DSWD, LSWDO, and Civil Registry portals",
+      "url": "./index.html#directory",
+      "icons": [
+        {
+          "src": "./favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "My Personal Action Plan",
+      "short_name": "My Plan",
+      "description": "View your saved next steps and private caregiver notes",
+      "url": "./index.html#plan",
+      "icons": [
+        {
+          "src": "./favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ]
 }

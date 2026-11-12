@@ -18,6 +18,11 @@
 
   <title>AlagaLegal PH – Family Care &amp; Legal Guide</title>
 
+  <!-- Modern Civic Typography (Graceful System Fallback Offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
@@ -41,13 +46,16 @@
     <button type="button" id="btn-reload-update" class="btn btn--small btn--primary" data-i18n="updateAction">Refresh App</button>
   </div>
 
-  <!-- Top Application Header -->
+  <!-- Top Civic Glassmorphism Header -->
   <header class="app-header">
     <div class="container header-inner">
       <a href="#home" class="brand" data-route="home" aria-label="AlagaLegal PH Home">
-        <img src="./favicon.svg" alt="" width="40" height="40" class="brand-logo" />
+        <img src="./favicon.svg" alt="" width="42" height="42" class="brand-logo" />
         <div class="brand-text">
-          <span class="brand-title">AlagaLegal PH</span>
+          <div class="brand-title-row">
+            <span class="brand-title">AlagaLegal PH</span>
+            <span class="brand-pill">PH Civic Guide</span>
+          </div>
           <span class="brand-tagline" data-i18n="tagline">Family Care &amp; Legal Guide</span>
         </div>
       </a>
@@ -58,14 +66,14 @@
         <button type="button" id="btn-lang-toggle" class="icon-btn lang-btn" aria-label="Switch language between English and Filipino">
           <span id="lang-label">EN → FIL</span>
         </button>
-        <button type="button" id="btn-text-size" class="icon-btn" aria-label="Toggle larger reading text">A+</button>
-        <button type="button" id="btn-theme-toggle" class="icon-btn" aria-label="Toggle light and dark theme">
+        <button type="button" id="btn-text-size" class="icon-btn" aria-label="Toggle larger reading text" title="Larger Text">A+</button>
+        <button type="button" id="btn-theme-toggle" class="icon-btn" aria-label="Toggle light and dark theme" title="Switch Theme">
           <span id="theme-icon" aria-hidden="true">☾</span>
         </button>
       </div>
     </div>
 
-    <!-- Desktop Navigation -->
+    <!-- Desktop Primary Navigation -->
     <nav class="desktop-nav" aria-label="Primary Navigation">
       <div class="container desktop-nav-inner">
         <a href="#home" class="nav-link active" data-route="home" data-i18n="navHome">Home</a>
@@ -75,98 +83,221 @@
         <a href="#directory" class="nav-link" data-route="directory" data-i18n="navDirectory">Legal Aid</a>
         <a href="#costs" class="nav-link" data-route="costs" data-i18n="navCosts">Costs &amp; Steps</a>
         <a href="#faq" class="nav-link" data-route="faq" data-i18n="navFaq">FAQ</a>
-        <a href="#plan" class="nav-link" data-route="plan" data-i18n="navPlan">My Plan</a>
+        <a href="#plan" class="nav-link nav-link--plan" data-route="plan" data-i18n="navPlan">My Plan</a>
       </div>
     </nav>
   </header>
 
   <!-- Main Content -->
   <main id="main-content" class="container main-container" tabindex="-1">
-    <!-- Persistent Legal Disclaimer -->
+    <!-- Persistent Legal Information Notice -->
     <aside class="disclaimer-bar" aria-label="Legal Disclaimer">
-      <strong data-i18n="disclaimerLead">Public Legal Information Only:</strong>
-      <span data-i18n="disclaimerShort">AlagaLegal PH provides general Philippine legal education, not formal legal representation. Never falsify a birth certificate or hide a child's biological identity. Consult PAO, NACC, LSWDO, or a licensed lawyer for your specific case.</span>
+      <div class="disclaimer-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="disclaimer-copy">
+        <strong data-i18n="disclaimerLead">Public Legal Information Only:</strong>
+        <span data-i18n="disclaimerShort">AlagaLegal PH provides general Philippine legal education, not formal legal representation. Never falsify a birth certificate or hide a child's biological identity. Consult PAO, NACC, LSWDO, or a licensed lawyer for your specific case.</span>
+      </div>
     </aside>
 
     <!-- 1. HOME DASHBOARD VIEW -->
     <section id="view-home" class="app-view active" aria-labelledby="home-hero-heading">
-      <div class="hero-card">
-        <span class="hero-badge" data-i18n="heroBadge">Free Public-Service Resource • Bataan Community Guide &amp; Nationwide PH</span>
-        <h1 id="home-hero-heading" data-i18n="heroTitle">Caring for a child who is not legally yours? Understand your lawful options.</h1>
-        <blockquote class="hero-mission" data-i18n="heroMission">“Nobody should have to break the law simply because they cannot afford to understand it.”</blockquote>
-        <p class="hero-desc" data-i18n="heroDesc">Built for Filipino grandparents, aunts, uncles, and guardians. Learn lawful adoption, guardianship, and civil registry steps in simple English and Filipino—even offline.</p>
+      <div class="hero-shell">
+        <div class="hero-content">
+          <span class="hero-badge" data-i18n="heroBadge">Free Public-Service Resource • Bataan Community Guide &amp; Nationwide PH</span>
+          <h1 id="home-hero-heading" data-i18n="heroTitle">Caring for a child who is not legally yours? Understand your lawful options.</h1>
+          <p class="hero-desc" data-i18n="heroDesc">Built for Filipino grandparents, aunts, uncles, and guardians. Learn lawful adoption, guardianship, and civil registry steps in simple English and Filipino—even offline.</p>
 
-        <div class="hero-actions">
-          <a href="#situations" class="btn btn--primary" data-route="situations" data-i18n="ctaStartSituation">Start with My Family Situation</a>
-          <a href="#checklist" class="btn btn--secondary-light" data-route="checklist" data-i18n="ctaOpenChecklist">Open Document Checklist</a>
-          <button type="button" id="btn-ios-install-help" class="btn btn--outline-light" data-i18n="ctaHowToInstall">How to Save on Phone</button>
+          <blockquote class="hero-mission" data-i18n="heroMission">“Nobody should have to break the law simply because they cannot afford to understand it.”</blockquote>
+
+          <div class="hero-actions">
+            <a href="#situations" class="btn btn--primary" data-route="situations">
+              <span data-i18n="ctaStartSituation">Start with My Family Situation</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="#checklist" class="btn btn--secondary" data-route="checklist" data-i18n="ctaOpenChecklist">Open Document Checklist</a>
+            <button type="button" id="btn-ios-install-help" class="btn btn--ghost" data-i18n="ctaHowToInstall">How to Save on Phone</button>
+          </div>
+        </div>
+
+        <!-- Warm, Compassionate Family Care Illustration Panel -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-illustration-card">
+            <svg viewBox="0 0 360 270" width="100%" height="auto" class="family-care-svg" role="img">
+              <!-- Soft Warm Backdrop Circles -->
+              <circle cx="180" cy="135" r="112" fill="#E6F4F4" />
+              <circle cx="258" cy="64" r="24" fill="#FEF3C7" />
+              <circle cx="258" cy="64" r="13" fill="#D99B26" opacity="0.85" />
+
+              <!-- Protective Civic Shield Outline -->
+              <path d="M180 26 L278 60 V132 C278 192 236 232 180 250 C124 232 82 192 82 132 V60 Z" fill="#FFFFFF" stroke="#0F2942" stroke-width="4" stroke-linejoin="round" />
+              <path d="M180 38 L266 68 V131 C266 184 229 220 180 236 C131 220 94 184 94 131 V68 Z" fill="none" stroke="#D99B26" stroke-width="2" stroke-dasharray="5 4" />
+
+              <!-- Grandparent / Caregiver Figure (Left) -->
+              <circle cx="152" cy="112" r="23" fill="#0F2942" />
+              <path d="M133 103 C138 90 166 90 171 103" fill="none" stroke="#E2E8F0" stroke-width="4" stroke-linecap="round" />
+              <path d="M114 196 C114 156 190 156 190 196 Z" fill="#0F2942" />
+
+              <!-- Child Figure (Right, Sheltered Beside Caregiver) -->
+              <circle cx="212" cy="130" r="17" fill="#0D7377" />
+              <path d="M184 196 C184 166 240 166 240 196 Z" fill="#0D7377" />
+
+              <!-- Warm Heart & Protective Connection -->
+              <path d="M182 84 C182 84 171 75 171 67 A6 6 0 0 1 182 63 A6 6 0 0 1 193 67 C193 75 182 84 182 84 Z" fill="#D99B26" />
+              <rect x="122" y="202" width="116" height="8" rx="4" fill="#CBD5E1" />
+            </svg>
+
+            <div class="hero-trust-strip">
+              <div class="trust-pill">
+                <span class="trust-dot"></span>
+                <span>100% Free &amp; Open-Source</span>
+              </div>
+              <div class="trust-pill">
+                <span class="trust-dot"></span>
+                <span>Private &amp; Offline-Ready</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- User Local Progress Snapshot -->
       <div class="stats-grid" aria-label="Your Saved Progress">
         <div class="stat-card">
-          <span class="stat-label" data-i18n="statSituationLabel">Selected Situation</span>
+          <div class="stat-card-header">
+            <span class="stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <span class="stat-label" data-i18n="statSituationLabel">Selected Situation</span>
+          </div>
           <strong class="stat-value" id="home-selected-situation">Not selected yet</strong>
         </div>
+
         <div class="stat-card">
-          <span class="stat-label" data-i18n="statChecklistLabel">Active Checklist Progress</span>
+          <div class="stat-card-header">
+            <span class="stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <span class="stat-label" data-i18n="statChecklistLabel">Active Checklist Progress</span>
+          </div>
           <strong class="stat-value" id="home-checklist-progress">0% (0/0)</strong>
         </div>
+
         <div class="stat-card">
-          <span class="stat-label" data-i18n="statPlanLabel">Saved Action Plan Steps</span>
+          <div class="stat-card-header">
+            <span class="stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <span class="stat-label" data-i18n="statPlanLabel">Saved Action Plan Steps</span>
+          </div>
           <strong class="stat-value" id="home-plan-count">0 Tasks Saved</strong>
         </div>
       </div>
 
-      <h2 class="section-heading" data-i18n="dashboardModulesHeading">Explore AlagaLegal PH Tools</h2>
-      <div class="modules-grid">
-        <a href="#situations" class="module-card" data-route="situations">
-          <span class="module-tag" data-i18n="tagStep1">Step 1 • Start Here</span>
-          <h3 data-i18n="cardSituationsTitle">Family Situation Guide</h3>
-          <p data-i18n="cardSituationsDesc">Select who you are caring for (grandchild, niece/nephew, abandoned child) to see lawful options and warnings.</p>
-        </a>
+      <!-- Service & Guidance Modules -->
+      <div class="section-band">
+        <div class="section-header-block">
+          <span class="section-eyebrow">Guided Family Support</span>
+          <h2 class="section-heading" data-i18n="dashboardModulesHeading">Explore AlagaLegal PH Tools</h2>
+        </div>
 
-        <a href="#guides" class="module-card" data-route="guides">
-          <span class="module-tag" data-i18n="tagStep2">Step 2 • Learn Laws</span>
-          <h3 data-i18n="cardGuidesTitle">Step-by-Step Legal Guides</h3>
-          <p data-i18n="cardGuidesDesc">Plain-language guides on RA 11642 Administrative Adoption, Guardianship, Substitute Parental Authority, and PSA records.</p>
-        </a>
+        <div class="modules-grid">
+          <a href="#situations" class="module-card" data-route="situations">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagStep1">Step 1 • Start Here</span>
+            </div>
+            <h3 data-i18n="cardSituationsTitle">Family Situation Guide</h3>
+            <p data-i18n="cardSituationsDesc">Select who you are caring for (grandchild, niece/nephew, abandoned child) to see lawful options and warnings.</p>
+            <span class="module-arrow" aria-hidden="true">Explore options →</span>
+          </a>
 
-        <a href="#checklist" class="module-card" data-route="checklist">
-          <span class="module-tag" data-i18n="tagStep3">Step 3 • Prepare</span>
-          <h3 data-i18n="cardChecklistTitle">Document Checklist</h3>
-          <p data-i18n="cardChecklistDesc">Interactive checklists saved privately on your phone so you avoid incomplete requirements and wasted trips.</p>
-        </a>
+          <a href="#guides" class="module-card" data-route="guides">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 5v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V5l-8-3z"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagStep2">Step 2 • Learn Laws</span>
+            </div>
+            <h3 data-i18n="cardGuidesTitle">Step-by-Step Legal Guides</h3>
+            <p data-i18n="cardGuidesDesc">Plain-language guides on RA 11642 Administrative Adoption, Guardianship, Substitute Parental Authority, and PSA records.</p>
+            <span class="module-arrow" aria-hidden="true">Read legal guides →</span>
+          </a>
 
-        <a href="#directory" class="module-card" data-route="directory">
-          <span class="module-tag" data-i18n="tagStep4">Step 4 • Get Help</span>
-          <h3 data-i18n="cardDirectoryTitle">Legal Aid &amp; Agency Directory</h3>
-          <p data-i18n="cardDirectoryDesc">Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan community offices.</p>
-        </a>
+          <a href="#checklist" class="module-card" data-route="checklist">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagStep3">Step 3 • Prepare</span>
+            </div>
+            <h3 data-i18n="cardChecklistTitle">Document Checklist</h3>
+            <p data-i18n="cardChecklistDesc">Interactive checklists saved privately on your phone so you avoid incomplete requirements and wasted trips.</p>
+            <span class="module-arrow" aria-hidden="true">Open checklist →</span>
+          </a>
 
-        <a href="#costs" class="module-card" data-route="costs">
-          <span class="module-tag" data-i18n="tagStep5">Step 5 • Plan Budget</span>
-          <h3 data-i18n="cardCostsTitle">Cost &amp; Process Guide</h3>
-          <p data-i18n="cardCostsDesc">Understand which government services are free, where expenses may arise, and how to qualify for indigent support.</p>
-        </a>
+          <a href="#directory" class="module-card" data-route="directory">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagStep4">Step 4 • Get Help</span>
+            </div>
+            <h3 data-i18n="cardDirectoryTitle">Legal Aid &amp; Agency Directory</h3>
+            <p data-i18n="cardDirectoryDesc">Verified official portals for PAO, NACC, DSWD, LSWDO, PSA, Local Civil Registry, and Bataan community offices.</p>
+            <span class="module-arrow" aria-hidden="true">Find assistance →</span>
+          </a>
 
-        <a href="#faq" class="module-card" data-route="faq">
-          <span class="module-tag" data-i18n="tagStep6">Answers</span>
-          <h3 data-i18n="cardFaqTitle">Frequently Asked Questions</h3>
-          <p data-i18n="cardFaqDesc">Practical answers about separated parents, missing parents, grandparent adoption, and birth certificate errors.</p>
-        </a>
+          <a href="#costs" class="module-card" data-route="costs">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagStep5">Step 5 • Plan Budget</span>
+            </div>
+            <h3 data-i18n="cardCostsTitle">Cost &amp; Process Guide</h3>
+            <p data-i18n="cardCostsDesc">Understand which government services are free, where expenses may arise, and how to qualify for indigent support.</p>
+            <span class="module-arrow" aria-hidden="true">View stages &amp; costs →</span>
+          </a>
 
-        <a href="#plan" class="module-card module-card--highlight" data-route="plan">
-          <span class="module-tag" data-i18n="tagPrivate">Stored Locally on Device</span>
-          <h3 data-i18n="cardPlanTitle">My Personal Action Plan</h3>
-          <p data-i18n="cardPlanDesc">Save your chosen situation, track next steps, and keep private caregiver notes offline without creating an account.</p>
-        </a>
+          <a href="#faq" class="module-card" data-route="faq">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagStep6">Answers</span>
+            </div>
+            <h3 data-i18n="cardFaqTitle">Frequently Asked Questions</h3>
+            <p data-i18n="cardFaqDesc">Practical answers about separated parents, missing parents, grandparent adoption, and birth certificate errors.</p>
+            <span class="module-arrow" aria-hidden="true">Read answers →</span>
+          </a>
+
+          <a href="#plan" class="module-card module-card--featured" data-route="plan">
+            <div class="module-card-top">
+              <span class="module-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </span>
+              <span class="module-tag" data-i18n="tagPrivate">Stored Locally on Device</span>
+            </div>
+            <h3 data-i18n="cardPlanTitle">My Personal Action Plan</h3>
+            <p data-i18n="cardPlanDesc">Save your chosen situation, track next steps, and keep private caregiver notes offline without creating an account.</p>
+            <span class="module-arrow" aria-hidden="true">Open my plan →</span>
+          </a>
+        </div>
       </div>
 
+      <!-- Child Protection Advisory Banner -->
       <div class="safety-callout">
-        <h2 data-i18n="safetyTitle">Important Child Protection Reminder</h2>
-        <p data-i18n="safetyBody">Registering a child under your own name as if you gave birth to them ("simulated birth") is illegal and can harm the child's future inheritance, passport, and identity rights. Lawful paths such as Relative Adoption (RA 11642), Legal Guardianship, or Substitute Parental Authority protect both you and the child.</p>
+        <div class="safety-callout-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div>
+          <h2 data-i18n="safetyTitle">Important Child Protection Reminder</h2>
+          <p data-i18n="safetyBody">Registering a child under your own name as if you gave birth to them ("simulated birth") is illegal and can harm the child's future inheritance, passport, and identity rights. Lawful paths such as Relative Adoption (RA 11642), Legal Guardianship, or Substitute Parental Authority protect both you and the child.</p>
+        </div>
       </div>
     </section>
 
@@ -428,16 +559,39 @@
     </div>
   </dialog>
 
+  <!-- Informative Civic Footer -->
   <footer class="app-footer">
     <div class="container">
-      <div class="card-footer-actions">
-        <div>
-          <p><strong>AlagaLegal PH</strong> – Free &amp; Open-Source Public Legal Literacy Initiative (Bataan Community Guide &amp; Nationwide Philippines).</p>
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-brand-lockup">
+            <img src="./favicon.svg" alt="" width="34" height="34" />
+            <strong>AlagaLegal PH</strong>
+          </div>
+          <p class="muted-text">Free &amp; Open-Source Public Legal Literacy Initiative (Bataan Community Guide &amp; Nationwide Philippines).</p>
           <p class="muted-text" data-i18n="verifiedNote">About "Verified" Dates: Dates marked "Verified" indicate when statutory citations were checked against official Philippine government sources (such as the Official Gazette, Supreme Court E-Library, NACC, and PSA). Local office procedures, intake schedules, and municipal fees must always be confirmed directly with the specific office.</p>
         </div>
-        <div class="footer-action-group no-print">
-          <button type="button" id="btn-share-app-footer" class="btn btn--small btn--secondary" data-i18n="btnShareAppFull">Share This App</button>
-          <a href="mailto:feedback@alagalegal.ph?subject=Feedback%2FError%20on%20AlagaLegal%20PH" class="btn btn--small btn--secondary" data-i18n="btnFeedback">Send Feedback / Report an Error</a>
+
+        <div class="footer-links-col no-print">
+          <h3>Quick Navigation</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#situations" data-route="situations" data-i18n="navSituations">Situations</a></li>
+            <li><a href="#guides" data-route="guides" data-i18n="navGuides">Legal Guides</a></li>
+            <li><a href="#checklist" data-route="checklist" data-i18n="navChecklist">Checklist</a></li>
+            <li><a href="#directory" data-route="directory" data-i18n="navDirectory">Legal Aid</a></li>
+            <li><a href="#costs" data-route="costs" data-i18n="navCosts">Costs &amp; Steps</a></li>
+            <li><a href="#faq" data-route="faq" data-i18n="navFaq">FAQ</a></li>
+            <li><a href="#plan" data-route="plan" data-i18n="navPlan">My Plan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-actions-col no-print">
+          <h3>Community &amp; Feedback</h3>
+          <p class="muted-text">Help another Filipino family understand their lawful options or report a statutory update.</p>
+          <div class="footer-action-group">
+            <button type="button" id="btn-share-app-footer" class="btn btn--small btn--primary" data-i18n="btnShareAppFull">Share This App</button>
+            <a href="https://github.com/githubbest729/AlagaLegal-PH/issues/new?title=Feedback%2FError%20on%20AlagaLegal%20PH" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--secondary" data-i18n="btnFeedback">Send Feedback / Report an Error</a>
+          </div>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
     "descriptionFil": "Pangunahing ahensya ng gobyerno na nangangasiwa sa domestic administrative adoption, relative adoption, foster care, at CDCLAA sa ilalim ng RA 11642.",
     "whereToVisit": "Regional Alternative Child Care Office (RACCO) in your region or coordinate via your City/Municipal LSWDO.",
     "verificationNote": "Verify current regional office address and intake schedule via the official NACC website.",
-    "website": "[https://www.nacc.gov.ph](https://www.nacc.gov.ph)"
+    "website": "https://www.nacc.gov.ph"
   },
   {
     "id": "pao",
@@ -21,7 +21,7 @@
     "descriptionFil": "Nagbibigay ng libreng payong legal, notaryo ng affidavit, at representasyon sa korte sa mga kwalipikadong indigent na Pilipino.",
     "whereToVisit": "PAO District Office usually located at the Hall of Justice or Provincial/City Capitol compound.",
     "verificationNote": "Bring Barangay Certificate of Indigency and proof of income; eligibility is subject to PAO Indigency and Merit Tests.",
-    "website": "[https://pao.gov.ph](https://pao.gov.ph)"
+    "website": "https://pao.gov.ph"
   },
   {
     "id": "dswd",
@@ -33,19 +33,19 @@
     "descriptionFil": "Nagbibigay ng programang panlipunan, tulong pinansyal sa krisis (AICS), at referral para sa proteksyon ng bata.",
     "whereToVisit": "DSWD Regional Field Office or Social Welfare and Development (SWAD) Provincial Team.",
     "verificationNote": "Confirm program eligibility and office hours directly on dswd.gov.ph or at your LSWDO.",
-    "website": "[https://www.dswd.gov.ph](https://www.dswd.gov.ph)"
+    "website": "https://www.dswd.gov.ph"
   },
   {
     "id": "lswdo-bataan",
     "acronym": "LSWDO / MSWDO / CSWDO",
     "type": "pilot-bataan",
-    "name": "Local Social Welfare and Development Offices (Bataan Pilot & Nationwide LGUs)",
+    "name": "Local Social Welfare and Development Offices (Bataan Community Guide & Nationwide LGUs)",
     "coverage": "Every City & Municipality (e.g., Balanga City & Bataan Municipalities)",
     "descriptionEn": "Your closest frontline government office for child welfare intake, Social Case Study Reports, Solo Parent ID assessment (RA 11861), and referrals to RACCO/NACC.",
     "descriptionFil": "Pinakamalapit na opisina sa munisipyo o lungsod para sa paunang pagtatasa ng social worker, Social Case Study Report, Solo Parent ID, at referral sa NACC.",
     "whereToVisit": "City Hall or Municipal Hall (Social Welfare Office) in your locality.",
-    "verificationNote": "Visit your city/municipal hall directly to confirm intake days and required barangay endorsements.",
-    "website": "[https://bataan.gov.ph](https://bataan.gov.ph)"
+    "verificationNote": "Independent community directory entry; visit your city/municipal hall directly to confirm intake days and required barangay endorsements.",
+    "website": "https://bataan.gov.ph"
   },
   {
     "id": "lcro",
@@ -57,19 +57,19 @@
     "descriptionFil": "Nangangasiwa sa pagpaparehistro ng kapanganakan, late registration, Certificate of Foundling, at pagtatama sa ilalim ng RA 9048/10172.",
     "whereToVisit": "Local Civil Registry Office at the City or Municipal Hall where the birth occurred or where you reside.",
     "verificationNote": "Confirm exact municipal filing fees and documentary checklists at your local City/Municipal Hall.",
-    "website": "[https://psa.gov.ph](https://psa.gov.ph)"
+    "website": "https://psa.gov.ph"
   },
   {
     "id": "psa",
     "acronym": "PSA",
     "type": "civil-registry",
-    "name": "Philippine Statistics Authority (PSA) – Civil Registration Services",
-    "coverage": "Nationwide CRS Outlets & Online Portal",
-    "descriptionEn": "Issues security-paper copies of Certificates of Live Birth, Marriage Certificates, Death Certificates, CENOMAR, and annotated civil registry records.",
-    "descriptionFil": "Naglalabas ng opisyal na PSA Birth Certificate, Marriage Certificate, Death Certificate, CENOMAR, at annotated records.",
-    "whereToVisit": "PSA Civil Registry System (CRS) Outlets or official PSA Serbilis portal.",
-    "verificationNote": "Use only official PSA outlets or verified government portals; avoid unofficial fixers.",
-    "website": "[https://psa.gov.ph](https://psa.gov.ph)"
+    "name": "Philippine Statistics Authority (PSA) – Civil Registration & E-Certificate Services",
+    "coverage": "Nationwide CRS Outlets, PSAHelpline & eGovPH",
+    "descriptionEn": "Issues security-paper copies and digitally signed PSA E-Certificates (PDF with QR verification under PSA MC No. 2026-10) for Birth, Marriage, Death, and CENOMAR records.",
+    "descriptionFil": "Naglalabas ng opisyal na PSA security-paper copies at digitally signed PSA E-Certificates (PDF na may QR verification) para sa Birth, Marriage, Death, at CENOMAR.",
+    "whereToVisit": "PSA Civil Registry System (CRS) Outlets, eGovPH superapp, or official PSAHelpline portal.",
+    "verificationNote": "Use only official PSA outlets or verified government portals; check whether your receiving agency requires physical security paper or accepts digital E-Certificates.",
+    "website": "https://psa.gov.ph"
   },
   {
     "id": "ibp",
@@ -81,6 +81,6 @@
     "descriptionFil": "Nagbibigay ng libreng konsultasyong legal at pro bono na tulong sa mga kwalipikadong indigent sa pamamagitan ng mga provincial chapter ng IBP.",
     "whereToVisit": "IBP Provincial Chapter Office (often at the Hall of Justice) or via IBP National Center for Legal Aid.",
     "verificationNote": "Confirm walk-in consultation schedules directly with your local IBP chapter.",
-    "website": "[https://ibp.ph](https://ibp.ph)"
+    "website": "https://ibp.ph"
   }
 ]

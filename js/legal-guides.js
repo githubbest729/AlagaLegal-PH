@@ -1,10 +1,11 @@
-/* AlagaLegal PH – Family Situations, Step-by-Step Legal Guides, Directory & FAQs */
+/* AlagaLegal PH – Family Situations (with Inline SVG Icons), Legal Guides, Directory & FAQs */
 (function (global) {
   'use strict';
 
   const SITUATIONS = [
     {
       id: 'grandchild',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="10" r="2.5"/><path d="M14.5 20c.3-2.4 2-4 4.2-4 1.6 0 2.8.8 3.3 2"/></svg>',
       titleEn: 'I am raising my grandchild.',
       titleFil: 'Inaalagaan ko ang aking apo.',
       summaryEn: 'Grandparents have recognized substitute parental authority under the Family Code when parents are absent or deceased, and may also pursue Relative Adoption under RA 11642.',
@@ -28,6 +29,7 @@
     },
     {
       id: 'niece-nephew',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21C12 21 4 15.2 4 9.5A4.5 4.5 0 0 1 12 6.8A4.5 4.5 0 0 1 20 9.5C20 15.2 12 21 12 21Z"/></svg>',
       titleEn: 'I am caring for my niece or nephew.',
       titleFil: 'Inaalagaan ko ang aking pamangkin.',
       summaryEn: 'Aunts and uncles within the 4th civil degree of consanguinity qualify for Relative Adoption under RA 11642 or may apply for Legal Guardianship.',
@@ -49,6 +51,7 @@
     },
     {
       id: 'abandoned-child',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><circle cx="12" cy="13" r="2"/><path d="M9.5 18c.5-1.5 4.5-1.5 5 0"/></svg>',
       titleEn: 'I am caring for an abandoned or foundling child.',
       titleFil: 'Nag-aalaga ako ng batang inabandona o napulot (foundling).',
       summaryEn: 'Immediate coordination with your Barangay, LSWDO, and NACC is essential to protect the child\'s citizenship, civil registration, and safety.',
@@ -70,6 +73,7 @@
     },
     {
       id: 'relative-care',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 7.5L10.5 15.5"/><path d="M15.5 7.5L13.5 15.5"/></svg>',
       titleEn: 'I am a relative taking care of a child.',
       titleFil: 'Isa akong kamag-anak na nag-aalaga ng bata.',
       summaryEn: 'Whether short-term or long-term, formalizing your caregiving role prevents school, medical, and government service barriers.',
@@ -91,6 +95,7 @@
     },
     {
       id: 'guardian',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L4 5v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg>',
       titleEn: 'I am a guardian seeking formal authority.',
       titleFil: 'Isa akong tagapag-alaga (guardian) na nangangailangan ng pormal na awtoridad.',
       summaryEn: 'Legal guardianship is granted by a Regional Trial Court (Family Court) under A.M. No. 03-02-05-SC.',
@@ -110,6 +115,7 @@
     },
     {
       id: 'understand-adoption',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>',
       titleEn: 'I want to understand adoption in the Philippines.',
       titleFil: 'Gusto kong maunawaan ang legal na pag-aampon (adoption) sa Pilipinas.',
       summaryEn: 'Since 2022, RA 11642 simplified domestic adoption into an administrative process handled by the National Authority for Child Care (NACC).',
@@ -131,6 +137,7 @@
     },
     {
       id: 'correct-birth-cert',
+      iconSvg: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
       titleEn: 'I need help correcting a birth certificate.',
       titleFil: 'Kailangan ko ng tulong sa pagtatama ng birth certificate.',
       summaryEn: 'Minor typographical errors can be corrected administratively at the Local Civil Registry Office (LCRO), while substantial changes require court action.',
@@ -229,8 +236,11 @@
         const isSelected = sit.id === savedId;
         return `
           <button type="button" class="situation-btn ${isSelected ? 'selected' : ''}" data-situation-id="${sit.id}" role="listitem" aria-pressed="${isSelected}">
-            <span class="situation-btn-title">${isFil ? sit.titleFil : sit.titleEn}</span>
-            <span class="situation-btn-sub">${isFil ? sit.titleEn : sit.titleFil}</span>
+            <span class="situation-icon-wrap">${sit.iconSvg}</span>
+            <span class="situation-btn-content">
+              <span class="situation-btn-title">${isFil ? sit.titleFil : sit.titleEn}</span>
+              <span class="situation-btn-sub">${isFil ? sit.titleEn : sit.titleFil}</span>
+            </span>
           </button>
         `;
       }).join('');
@@ -403,7 +413,7 @@
         { id: 'legal-aid', label: 'Free Legal Aid (PAO / IBP)' },
         { id: 'child-care', label: 'Child Care & Social Welfare' },
         { id: 'civil-registry', label: 'Civil Registry & PSA' },
-        { id: 'pilot-bataan', label: 'Bataan Pilot Guide' }
+        { id: 'pilot-bataan', label: 'Bataan Community Guide' }
       ];
 
       container.innerHTML = types.map((t) => `

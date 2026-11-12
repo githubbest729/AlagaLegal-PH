@@ -20,6 +20,7 @@
       installApp: 'Install App',
       btnShare: 'Share',
       btnShareAppFull: 'Share This App',
+      btnFeedback: 'Send Feedback / Report an Error',
       disclaimerLead: 'Public Legal Information Only:',
       disclaimerShort: 'AlagaLegal PH provides general Philippine legal education, not formal legal representation. Never falsify a birth certificate or hide a child\'s biological identity. Consult PAO, NACC, LSWDO, or a licensed lawyer for your specific case.',
       heroBadge: 'Free Public-Service Resource • Bataan Community Guide & Nationwide PH',
@@ -107,6 +108,7 @@
       installApp: 'I-install ang App',
       btnShare: 'Ibahagi',
       btnShareAppFull: 'Ibahagi ang App na Ito',
+      btnFeedback: 'Magpadala ng Puna / Mag-ulat ng Mali',
       disclaimerLead: 'Pangkalahatang Impormasyong Legal Lamang:',
       disclaimerShort: 'Nagbibigay ang AlagaLegal PH ng simpleng kaalaman sa batas ng Pilipinas at hindi pamalit sa abogado. Huwag kailanman magpeke ng birth certificate o itago ang tunay na pagkakakilanlan ng bata. Kumonsulta sa PAO, NACC, LSWDO, o lisensyadong abogado.',
       heroBadge: 'Libreng Serbisyo Publiko • Gabay sa Bataan at Buong Pilipinas',
@@ -236,10 +238,10 @@
       }
       document.documentElement.setAttribute('data-theme', effectiveTheme);
 
-      const metaTheme = document.getElementById('meta-theme-color');
-      if (metaTheme) {
-        metaTheme.setAttribute('content', effectiveTheme === 'dark' ? '#0B1520' : '#0F2942');
-      }
+      const themeHex = effectiveTheme === 'dark' ? '#0B1520' : '#0F2942';
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+        meta.setAttribute('content', themeHex);
+      });
 
       const icon = document.getElementById('theme-icon');
       if (icon) {

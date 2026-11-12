@@ -1,4 +1,4 @@
-/* AlagaLegal PH – GitHub Pages Safe Hash Routing & Navigation */
+/* AlagaLegal PH – GitHub Pages Safe Hash Routing with View Transitions API */
 (function (global) {
   'use strict';
 
@@ -73,25 +73,36 @@
         this.historyStack.push(target);
       }
 
-      document.querySelectorAll('.app-view').forEach((section) => {
-        const isMatch = section.id === `view-${target}`;
-        section.hidden = !isMatch;
-        section.classList.toggle('active', isMatch);
-      });
+      const performDomUpdate = () => {
+        document.querySelectorAll('.app-view').forEach((section) => {
+          const isMatch = section.id === `view-${target}`;
+          section.hidden = !isMatch;
+          section.classList.toggle('active', isMatch);
+        });
 
-      document.querySelectorAll('[data-route]').forEach((link) => {
-        const isCurrent = link.getAttribute('data-route') === target;
-        if (link.classList.contains('nav-link') || link.classList.contains('bottom-nav-item')) {
-          link.classList.toggle('active', isCurrent);
-          if (isCurrent) {
-            link.setAttribute('aria-current', 'page');
-          } else {
-            link.removeAttribute('aria-current');
+        document.querySelectorAll('[data-route]').forEach((link) => {
+          const isCurrent = link.getAttribute('data-route') === target;
+          if (link.classList.contains('nav-link') || link.classList.contains('bottom-nav-item')) {
+            link.classList.toggle('active', isCurrent);
+            if (isCurrent) {
+              link.setAttribute('aria-current', 'page');
+            } else {
+              link.removeAttribute('aria-current');
+            }
           }
-        }
-      });
+        });
+      };
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const prefersReducedMotion =
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (typeof document.startViewTransition === 'function' && !prefersReducedMotion) {
+        document.startViewTransition(() => performDomUpdate());
+      } else {
+        performDomUpdate();
+      }
+
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       const main = document.getElementById('main-content');
       if (main) {
         main.focus({ preventScroll: true });
